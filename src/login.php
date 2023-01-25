@@ -26,7 +26,8 @@
         $query = "SELECT Passwort FROM Mitarbeiter WHERE MNR = '$loginID'";
         $ergebnis = $con->query($query);
         $row = $ergebnis->fetchObject();
-
+        
+        //test
         if()
 
 
