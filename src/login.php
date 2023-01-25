@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,6 +19,33 @@
     
     <?php
         require_once "db_connection.php";
+
+        $loginID = $_POST['loginID'];
+        $loginpw = $_POST['loginPassword']:
+
+        $query = "SELECT Passwort FROM Mitarbeiter WHERE MNR = '$loginID'";
+        $ergebnis = $con->query($query);
+        $row = $ergebnis->fetchObject();
+
+        if()
+
+
+
+
+        $sql = "SELECT * FROM Mitarbeiter";
+        $ergebnis = $con->query($sql);
+        
+        echo "<table><tr><th>MNR</th><th>Name</th><th>Vorname</th><th>Abteilung</th><th>Passwort</th></tr>";
+        while ($zeile = $ergebnis->fetchObject()){
+            echo "<tr>";
+            echo "<td>" . $zeile->MNR . "</td>";
+            echo "<td>" . $zeile->Mitarbeiter_Name . "</td>";
+            echo "<td>" . $zeile->Mitarbeiter_Vorname . "</td>";
+            echo "<td>" . $zeile->Abteilung . "</td>";
+            echo "<td>" . $zeile->Passwort . "</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
     ?>
     
 </body>

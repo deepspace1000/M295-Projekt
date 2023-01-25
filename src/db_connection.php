@@ -1,4 +1,4 @@
 <?php
-    $db = new PDO("mysql:host=localhost;dbname=M295_Projekt", "root", "") 
+    $con = new PDO("mysql:host=localhost;dbname=M295_Projekt", "root", "") 
     or die("Keine Verbindung möglich");
 ?>
