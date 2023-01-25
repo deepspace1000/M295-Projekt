@@ -9,7 +9,7 @@
 <body>
     <h1>Login</h1>
 
-    <form action="" method="POST">
+    <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
         <p>User ID</p>
         <input type="text" name="loginID"><br>
         <p>Password</p>
@@ -21,14 +21,17 @@
         require_once "db_connection.php";
 
         $loginID = $_POST['loginID'];
-        $loginpw = $_POST['loginPassword']:
+        $loginpw = $_POST['loginPassword'];
 
         $query = "SELECT Passwort FROM Mitarbeiter WHERE MNR = '$loginID'";
         $ergebnis = $con->query($query);
         $row = $ergebnis->fetchObject();
         
-        //test
-        if()
+        if (password_verify($loginpw, $row->Passwort)){
+            echo "Login erfolgreich";
+        }
+
+         
 
 
 
