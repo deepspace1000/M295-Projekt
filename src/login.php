@@ -17,7 +17,9 @@
         <input type="submit" name="sub" value="Anmelden">
     </form>
     
-
+    <?php
+        require_once "db_connection.php";
+    ?>
     
 </body>
 </html>
