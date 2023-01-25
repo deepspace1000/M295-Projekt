@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Erstellungszeit: 24. Jan 2023 um 16:27
+-- Erstellungszeit: 25. Jan 2023 um 08:10
 -- Server-Version: 10.4.21-MariaDB
 -- PHP-Version: 8.1.6
 
@@ -132,15 +132,16 @@ CREATE TABLE `Mitarbeiter` (
   `MNR` int(11) NOT NULL,
   `Name` varchar(25) NOT NULL,
   `Vorname` varchar(25) NOT NULL,
-  `Abteilung` int(11) NOT NULL
+  `Abteilung` int(11) NOT NULL,
+  `Passwort` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Daten für Tabelle `Mitarbeiter`
 --
 
-INSERT INTO `Mitarbeiter` (`MNR`, `Name`, `Vorname`, `Abteilung`) VALUES
-(1, 'Rothe', 'Nils', 1);
+INSERT INTO `Mitarbeiter` (`MNR`, `Name`, `Vorname`, `Abteilung`, `Passwort`) VALUES
+(1, 'Rothe', 'Nils', 1, 'Das wär de pw hash');
 
 --
 -- Indizes der exportierten Tabellen
