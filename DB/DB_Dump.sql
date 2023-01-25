@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Erstellungszeit: 25. Jan 2023 um 09:33
+-- Erstellungszeit: 25. Jan 2023 um 09:56
 -- Server-Version: 10.4.21-MariaDB
 -- PHP-Version: 8.1.6
 
@@ -107,8 +107,8 @@ CREATE TABLE `Auftrag-Arbeit` (
 
 CREATE TABLE `Kunden` (
   `KNR` int(11) NOT NULL,
-  `Name` varchar(25) NOT NULL,
-  `Vorname` varchar(25) NOT NULL,
+  `Kunden_Name` varchar(25) NOT NULL,
+  `Kunden_Vorname` varchar(25) NOT NULL,
   `Geschlecht` varchar(10) NOT NULL,
   `Telefon` varchar(15) NOT NULL,
   `Natel` varchar(15) NOT NULL,
@@ -121,7 +121,7 @@ CREATE TABLE `Kunden` (
 -- Daten für Tabelle `Kunden`
 --
 
-INSERT INTO `Kunden` (`KNR`, `Name`, `Vorname`, `Geschlecht`, `Telefon`, `Natel`, `Adresse`, `PLZ`, `Ort`) VALUES
+INSERT INTO `Kunden` (`KNR`, `Kunden_Name`, `Kunden_Vorname`, `Geschlecht`, `Telefon`, `Natel`, `Adresse`, `PLZ`, `Ort`) VALUES
 (1, 'Wenzler', 'Alejandro', 'Herr', '077 424 04 24', '077 232 23 43', 'Weissnichwo 25', 4321, 'Brucke');
 
 -- --------------------------------------------------------
@@ -132,8 +132,8 @@ INSERT INTO `Kunden` (`KNR`, `Name`, `Vorname`, `Geschlecht`, `Telefon`, `Natel`
 
 CREATE TABLE `Mitarbeiter` (
   `MNR` int(11) NOT NULL,
-  `Name` varchar(25) NOT NULL,
-  `Vorname` varchar(25) NOT NULL,
+  `Mitarbeiter_Name` varchar(25) NOT NULL,
+  `Mitarbeiter_Vorname` varchar(25) NOT NULL,
   `Abteilung` int(11) NOT NULL,
   `Passwort` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -142,7 +142,7 @@ CREATE TABLE `Mitarbeiter` (
 -- Daten für Tabelle `Mitarbeiter`
 --
 
-INSERT INTO `Mitarbeiter` (`MNR`, `Name`, `Vorname`, `Abteilung`, `Passwort`) VALUES
+INSERT INTO `Mitarbeiter` (`MNR`, `Mitarbeiter_Name`, `Mitarbeiter_Vorname`, `Abteilung`, `Passwort`) VALUES
 (1, 'Rothe', 'Nils', 1, 'Das wär de pw hash');
 
 --
