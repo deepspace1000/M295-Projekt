@@ -13,8 +13,12 @@
         <p>User ID</p>
         <input type="text" name="loginID"><br>
         <p>Password</p>
-        <input type="password" name="loginPassword">
+        <input type="password" name="loginPassword"><br>
+        <input type="submit" name="sub" value="Anmelden">
     </form>
+
+    
+
     
 </body>
 </html>
