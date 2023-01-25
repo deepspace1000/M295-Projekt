@@ -16,7 +16,6 @@
         <input type="password" name="loginPassword"><br>
         <input type="submit" name="sub" value="Anmelden">
     </form>
-
     
 
     
