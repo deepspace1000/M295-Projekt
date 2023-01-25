@@ -7,6 +7,14 @@
     <title>Anmeldung</title>
 </head>
 <body>
+    <h1>Login</h1>
+
+    <form action="" method="POST">
+        <p>User ID</p>
+        <input type="text" name="loginID"><br>
+        <p>Password</p>
+        <input type="password" name="loginPassword">
+    </form>
     
 </body>
 </html>
