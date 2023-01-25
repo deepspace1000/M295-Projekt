@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Erstellungszeit: 25. Jan 2023 um 08:10
+-- Erstellungszeit: 25. Jan 2023 um 09:33
 -- Server-Version: 10.4.21-MariaDB
 -- PHP-Version: 8.1.6
 
@@ -76,15 +76,17 @@ CREATE TABLE `Auftraege` (
   `Mitarbeiter` int(11) NOT NULL,
   `Adresse_Objekt` varchar(50) NOT NULL,
   `Terminwunsch` varchar(50) NOT NULL,
-  `Beschreibung` varchar(255) NOT NULL
+  `Beschreibung` varchar(255) NOT NULL,
+  `Freigegeben_Verrechnung` tinyint(1) NOT NULL,
+  `Verrechnet` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Daten für Tabelle `Auftraege`
 --
 
-INSERT INTO `Auftraege` (`AuftragsNr`, `Datum`, `Zeit`, `Kunde`, `Mitarbeiter`, `Adresse_Objekt`, `Terminwunsch`, `Beschreibung`) VALUES
-(1, '2023-01-25', 10.30, 1, 1, 'dito', 'wend ziit hesch chasch mal verbii cho', 'Miis Huus isch explodiert');
+INSERT INTO `Auftraege` (`AuftragsNr`, `Datum`, `Zeit`, `Kunde`, `Mitarbeiter`, `Adresse_Objekt`, `Terminwunsch`, `Beschreibung`, `Freigegeben_Verrechnung`, `Verrechnet`) VALUES
+(1, '2023-01-25', 10.30, 1, 1, 'dito', 'wend ziit hesch chasch mal verbii cho', 'Miis Huus isch explodiert', 0, 0);
 
 -- --------------------------------------------------------
 
