@@ -8,15 +8,6 @@
     <title>Anmeldung</title>
 </head>
 <body>
-    <h1>Login</h1>
-
-    <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
-        <p>User ID</p>
-        <input type="text" name="loginID"><br>
-        <p>Password</p>
-        <input type="password" name="loginPassword"><br>
-        <input type="submit" name="sub" value="Anmelden">
-    </form>
     
     <?php
         require_once "db_connection.php";
@@ -31,19 +22,26 @@
     
         if ($ergebnis->rowCount() == 1){
             if (password_verify($loginpw, $row->Passwort)){
-                echo "Login erfolgreich";
                 $_SESSION['userid'] = $loginID;
                 $_SESSION['abteilung'] = $row->Abteilung;
-            } else {echo "<p>wrong pw</p>";} 
-
-        } else {echo "<p>Kein User vorhanden</p>";}
+                unset($_SESSION['meldungen']);
+                header("Location: create_pw.php"); 
+            } 
+            else {
+                $_SESSION['meldungen'] = "Falsches Passwort";
+                header("Location: index.php");
+            }
+        } 
+        else {
+            $_SESSION['meldungen'] = "Dieser User existiert nicht";
+            header("Location: index.php");
+        }
         
         
 
          
 
-
-
+        /*
 
         $sql = "SELECT * FROM Mitarbeiter";
         $ergebnis = $con->query($sql);
@@ -59,6 +57,7 @@
             echo "</tr>";
         }
         echo "</table>";
+        */
     ?>
     
 </body>
