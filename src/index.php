@@ -1,5 +1,5 @@
 <?php session_start();
-    //If user is still loged in inpmlement
+    //If user is still loged in implement
 ?>
 <!DOCTYPE html>
 <html lang="de">
