@@ -25,7 +25,7 @@
                 $_SESSION['userid'] = $loginID;
                 $_SESSION['abteilung'] = $row->Abteilung;
                 unset($_SESSION['meldungen']);
-                header("Location: create_pw.php"); 
+                header("Location: auftragsansicht.php"); 
             } 
             else {
                 $_SESSION['meldungen'] = "Falsches Passwort";
