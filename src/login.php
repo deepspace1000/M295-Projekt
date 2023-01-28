@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -22,14 +23,22 @@
 
         $loginID = $_POST['loginID'];
         $loginpw = $_POST['loginPassword'];
+    
 
-        $query = "SELECT Passwort FROM Mitarbeiter WHERE MNR = '$loginID'";
+        $query = "SELECT * FROM Mitarbeiter WHERE MNR = '$loginID'";
         $ergebnis = $con->query($query);
         $row = $ergebnis->fetchObject();
+    
+        if ($ergebnis->rowCount() == 1){
+            if (password_verify($loginpw, $row->Passwort)){
+                echo "Login erfolgreich";
+                $_SESSION['userid'] = $loginID;
+                $_SESSION['abteilung'] = $row->Abteilung;
+            } else {echo "<p>wrong pw</p>";} 
+
+        } else {echo "<p>Kein User vorhanden</p>";}
         
-        if (password_verify($loginpw, $row->Passwort)){
-            echo "Login erfolgreich";
-        }
+        
 
          
 
