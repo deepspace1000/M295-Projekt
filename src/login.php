@@ -36,28 +36,7 @@
             $_SESSION['meldungen'] = "Dieser User existiert nicht";
             header("Location: index.php");
         }
-        
-        
-
-         
-
-        /*
-
-        $sql = "SELECT * FROM Mitarbeiter";
-        $ergebnis = $con->query($sql);
-        
-        echo "<table><tr><th>MNR</th><th>Name</th><th>Vorname</th><th>Abteilung</th><th>Passwort</th></tr>";
-        while ($zeile = $ergebnis->fetchObject()){
-            echo "<tr>";
-            echo "<td>" . $zeile->MNR . "</td>";
-            echo "<td>" . $zeile->Mitarbeiter_Name . "</td>";
-            echo "<td>" . $zeile->Mitarbeiter_Vorname . "</td>";
-            echo "<td>" . $zeile->Abteilung . "</td>";
-            echo "<td>" . $zeile->Passwort . "</td>";
-            echo "</tr>";
-        }
-        echo "</table>";
-        */
+    
     ?>
     
 </body>
