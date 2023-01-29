@@ -27,7 +27,7 @@
                 $_SESSION['vorname'] = $row->Mitarbeiter_Vorname;
                 $_SESSION['name'] = $row->Mitarbeiter_Name;
                 unset($_SESSION['meldungen']);
-                header("Location: auftragsansicht.php"); 
+                header("Location: auftragsansicht.php");
             } 
             else {
                 $_SESSION['meldungen'] = "Falsches Passwort";

@@ -17,6 +17,24 @@
         <?php include "header.php";?>
     </header>
     <h1>admin</h1>
+
+    <?php
+        require_once "db_connenction.php";
+        echo "HALLO";
+
+        //$query = "SELECT * FROM Mitarbeiter WHERE MNR = '$loginID'";
+        $query = 
+        "SELECT * 
+        FROM Auftraege
+        JOIN Mitarbeiter
+        ON Auftraege.Mitarbeiter = Mitarbeiter.MNR";
+        $ergebnis = $con->query($query);
+
+        while($row = $ergebnis->fetchObject()){
+            print_r($row);
+        }
+        echo "nice";
+    ?>
     
 </body>
 </html>
