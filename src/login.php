@@ -1,17 +1,14 @@
 <?php session_start();
 
-    
     require_once "db_connection.php";
 
     $loginID = $_POST['loginID'];
     $loginpw = $_POST['loginPassword'];
 
-
+    
     $statement = $con->prepare("SELECT * FROM Mitarbeiter WHERE MNR = :mnr");
     $statement->bindParam(':mnr', $loginID);
     
-    
-
     if ($statement->execute() && $statement->rowCount() == 1){
         $row = $statement->fetchObject();
 
