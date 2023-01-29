@@ -5,7 +5,7 @@
     }
     switch($_SESSION['abteilung']){
         case 1:
-            require "ansichtadmin.php";
+            header("Location: ansichtadmin.php");
             break;
         case 2:
             echo "Sie sind bereichsleiter";
