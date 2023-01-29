@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+
 <form action="logout.php" method="POST">
     <table>
         <tr>
