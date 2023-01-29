@@ -17,7 +17,6 @@
     }
     else{
         echo "Fehler Beim erstellen des neuen benutzers!!";
-        header("Location: index.php");
     }
 
 
