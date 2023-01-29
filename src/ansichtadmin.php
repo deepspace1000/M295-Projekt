@@ -17,7 +17,7 @@
         <?php include "header.php";?>
     </header>
     <h1>admin</h1>
-    <form action="registrieren.php" method="POST">
+    <form action="erfassen.php" method="POST">
         <input type="submit" name="registrieren" value="Neuer Mitarbeiter">
     </form>
 
