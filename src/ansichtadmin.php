@@ -19,6 +19,7 @@
     <h1>admin</h1>
     <form action="erfassen.php" method="POST">
         <input type="submit" name="registrieren" value="Neuer Mitarbeiter">
+        <input type="submit" name="neuauftrag" value="Neuer Auftrag">
     </form>
 
     <?php

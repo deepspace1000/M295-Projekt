@@ -11,7 +11,10 @@
     $hashed_password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $abt = $_POST['abt'];
 
-    $statement = $con->prepare("INSERT INTO Mitarbeiter (Mitarbeiter_Name, Mitarbeiter_Vorname, )
+    $statement = $con->prepare("INSERT INTO Mitarbeiter (Mitarbeiter_Name, Mitarbeiter_Vorname, Abteilung, Passwort) VALUES ('$name', '$vorname', $abt, '$hashed_password')");
+    if($statement->execute()){
+        
+    }
 
 
 
