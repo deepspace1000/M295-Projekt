@@ -13,7 +13,11 @@
 
     $statement = $con->prepare("INSERT INTO Mitarbeiter (Mitarbeiter_Name, Mitarbeiter_Vorname, Abteilung, Passwort) VALUES ('$name', '$vorname', $abt, '$hashed_password')");
     if($statement->execute()){
-        
+        header("Location: index.php");
+    }
+    else{
+        echo "Fehler Beim erstellen des neuen benutzers!!";
+        header("Location: index.php");
     }
 
 
