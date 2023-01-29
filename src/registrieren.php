@@ -4,10 +4,14 @@
         die;
     }
 
+    require_once "db_connection.php";
+
     $name = $_POST['name'];
     $vorname = $_POST['vorname'];
     $hashed_password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $abt = $_POST['abt'];
+
+    $statement = $con->prepare("INSERT INTO Mitarbeiter (Mitarbeiter_Name, Mitarbeiter_Vorname, )
 
 
 
