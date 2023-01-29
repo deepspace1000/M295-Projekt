@@ -14,7 +14,7 @@
 </head>
 <body>
     <header>
-        <?php include "header.php"?>
+        <?php include "header.php";?>
     </header>
     <h1>bereichsleiter</h1>
     
