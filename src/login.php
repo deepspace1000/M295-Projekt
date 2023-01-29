@@ -24,6 +24,8 @@
             if (password_verify($loginpw, $row->Passwort)){
                 $_SESSION['userid'] = $loginID;
                 $_SESSION['abteilung'] = $row->Abteilung;
+                $_SESSION['vorname'] = $row->Mitarbeiter_Vorname:
+                $_SESSION['name'] = $row->Mitarbeiter_Name:
                 unset($_SESSION['meldungen']);
                 header("Location: auftragsansicht.php"); 
             } 

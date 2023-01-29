@@ -1,5 +1,5 @@
 <?php session_start(); ?>
-<form>
+<form action="logout.php" method="POST">
     <table>
         <tr>
             <th><?php echo $_SESSION['vorname']; ?></th>
