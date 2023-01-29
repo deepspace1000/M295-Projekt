@@ -1,5 +1,5 @@
 <?php session_start();
-    if (!isset($_SESSION['userid']) || !$_SESSION['abteilung'] == 1){
+    if (!isset($_SESSION['userid']) || $_SESSION['abteilung'] != 1){
         header("Location: index.php");
         die;
     }
