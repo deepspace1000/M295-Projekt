@@ -17,10 +17,8 @@
         <?php include "header.php";?>
     </header>
     <h1>admin</h1>
-    <form action="erfassen.php" method="POST">
-        <input type="submit" name="registrieren" value="Neuer Mitarbeiter">
-        <input type="submit" name="neuauftrag" value="Neuer Auftrag">
-    </form>
+    <button onclick="window.location.href = 'erfassen_mitarbeiter.php';">Neuer Mitarbeiter</button>
+    <button onclick="window.location.href = 'erfassen_auftrag.php';">Neuer Auftrag</button>
 
     <?php
         require_once "db_connection.php";
