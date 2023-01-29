@@ -35,7 +35,7 @@
             </tr>
             <tr>
                 <td><label for="tele">Telefon</label></td>
-                <td><input type="text" id="tele" name="ktele" maxlength="15"></td>
+                <td><input type="text" id="tele" name="ktelefon" maxlength="15"></td>
             </tr>
             <tr>
                 <td><label for="natel">Natel</label></td>
