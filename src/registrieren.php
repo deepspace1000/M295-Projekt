@@ -15,9 +15,7 @@
     if($statement->execute()){
         header("Location: index.php");
     }
-    else{
-        echo "Fehler Beim erstellen des neuen benutzers!!";
-    }
+    else{echo "Fehler Beim erstellen des neuen benutzers!!";}
 
 
 
