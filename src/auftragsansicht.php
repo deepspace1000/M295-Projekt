@@ -8,10 +8,10 @@
             header("Location: ansichtadmin.php");
             break;
         case 2:
-            echo "Sie sind bereichsleiter";
+            header("Location: ansichtbereichsleiter.php");
             break;
         case 3:
-            echo "Sie sind Mitarbeiter";
+            header("Location: ansichtmitarbeiter.php");
             break;
     }
 ?>
