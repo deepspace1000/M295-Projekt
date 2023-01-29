@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Erstellungszeit: 24. Jan 2023 um 16:27
+-- Erstellungszeit: 29. Jan 2023 um 14:56
 -- Server-Version: 10.4.21-MariaDB
--- PHP-Version: 8.1.6
+-- PHP-Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -76,15 +76,17 @@ CREATE TABLE `Auftraege` (
   `Mitarbeiter` int(11) NOT NULL,
   `Adresse_Objekt` varchar(50) NOT NULL,
   `Terminwunsch` varchar(50) NOT NULL,
-  `Beschreibung` varchar(255) NOT NULL
+  `Beschreibung` varchar(255) NOT NULL,
+  `Freigegeben_Verrechnung` tinyint(1) NOT NULL,
+  `Verrechnet` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Daten für Tabelle `Auftraege`
 --
 
-INSERT INTO `Auftraege` (`AuftragsNr`, `Datum`, `Zeit`, `Kunde`, `Mitarbeiter`, `Adresse_Objekt`, `Terminwunsch`, `Beschreibung`) VALUES
-(1, '2023-01-25', 10.30, 1, 1, 'dito', 'wend ziit hesch chasch mal verbii cho', 'Miis Huus isch explodiert');
+INSERT INTO `Auftraege` (`AuftragsNr`, `Datum`, `Zeit`, `Kunde`, `Mitarbeiter`, `Adresse_Objekt`, `Terminwunsch`, `Beschreibung`, `Freigegeben_Verrechnung`, `Verrechnet`) VALUES
+(1, '2023-01-25', 10.30, 1, 1, 'dito', 'wend ziit hesch chasch mal verbii cho', 'Miis Huus isch explodiert', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -97,6 +99,13 @@ CREATE TABLE `Auftrag-Arbeit` (
   `AuftragsNr` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Daten für Tabelle `Auftrag-Arbeit`
+--
+
+INSERT INTO `Auftrag-Arbeit` (`ArbeitNr`, `AuftragsNr`) VALUES
+(3, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -105,8 +114,8 @@ CREATE TABLE `Auftrag-Arbeit` (
 
 CREATE TABLE `Kunden` (
   `KNR` int(11) NOT NULL,
-  `Name` varchar(25) NOT NULL,
-  `Vorname` varchar(25) NOT NULL,
+  `Kunden_Name` varchar(25) NOT NULL,
+  `Kunden_Vorname` varchar(25) NOT NULL,
   `Geschlecht` varchar(10) NOT NULL,
   `Telefon` varchar(15) NOT NULL,
   `Natel` varchar(15) NOT NULL,
@@ -119,7 +128,7 @@ CREATE TABLE `Kunden` (
 -- Daten für Tabelle `Kunden`
 --
 
-INSERT INTO `Kunden` (`KNR`, `Name`, `Vorname`, `Geschlecht`, `Telefon`, `Natel`, `Adresse`, `PLZ`, `Ort`) VALUES
+INSERT INTO `Kunden` (`KNR`, `Kunden_Name`, `Kunden_Vorname`, `Geschlecht`, `Telefon`, `Natel`, `Adresse`, `PLZ`, `Ort`) VALUES
 (1, 'Wenzler', 'Alejandro', 'Herr', '077 424 04 24', '077 232 23 43', 'Weissnichwo 25', 4321, 'Brucke');
 
 -- --------------------------------------------------------
@@ -130,17 +139,18 @@ INSERT INTO `Kunden` (`KNR`, `Name`, `Vorname`, `Geschlecht`, `Telefon`, `Natel`
 
 CREATE TABLE `Mitarbeiter` (
   `MNR` int(11) NOT NULL,
-  `Name` varchar(25) NOT NULL,
-  `Vorname` varchar(25) NOT NULL,
-  `Abteilung` int(11) NOT NULL
+  `Mitarbeiter_Name` varchar(25) NOT NULL,
+  `Mitarbeiter_Vorname` varchar(25) NOT NULL,
+  `Abteilung` int(11) NOT NULL,
+  `Passwort` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Daten für Tabelle `Mitarbeiter`
 --
 
-INSERT INTO `Mitarbeiter` (`MNR`, `Name`, `Vorname`, `Abteilung`) VALUES
-(1, 'Rothe', 'Nils', 1);
+INSERT INTO `Mitarbeiter` (`MNR`, `Mitarbeiter_Name`, `Mitarbeiter_Vorname`, `Abteilung`, `Passwort`) VALUES
+(1, 'Rothe', 'Nils', 1, '$2y$10$k1GPMvSD8Ya3pFpis3KDpuZnRTzB9vEhR4dLe3lN3JHiG3Q3RhlV6');
 
 --
 -- Indizes der exportierten Tabellen
