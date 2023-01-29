@@ -1,5 +1,8 @@
 <?php session_start();
-    //If user is still loged in implement
+    if(isset($_SESSION['userid'])){
+        header("Location: auftragsansicht.php");
+        die;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="de">
