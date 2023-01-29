@@ -13,6 +13,9 @@
     <title>Document</title>
 </head>
 <body>
+    <header>
+        <?php include "header.php"?>
+    </header>
     <h1>bereichsleiter</h1>
     
 </body>
