@@ -16,7 +16,7 @@
 <body>
     <h1>Neuen Mitarbeiter erfassen</h1>
 
-    <form action="registrieren.php" method="POST">
+    <form action="registrieren_mitarbeiter.php" method="POST">
         <table>
             <tr>
                 <td>
