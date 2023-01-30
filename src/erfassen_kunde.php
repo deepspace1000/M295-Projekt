@@ -18,11 +18,11 @@
         <table>
             <tr>
                 <td><label for="name">Name</label></td>
-                <td><input type="text" id="name" name="kname" maxlength="25"></td>
+                <td><input type="text" id="name" name="kname" maxlength="25" required></td>
             </tr>
             <tr>
                 <td><label for="vorname">Vorname</label></td>
-                <td><input type="text" id="vorname" name="kvorname" maxlength="25"></td>
+                <td><input type="text" id="vorname" name="kvorname" maxlength="25" required></td>
             </tr>
             <tr>
                 <td><label for="geschlecht">Geschlecht</label></td>
@@ -35,23 +35,23 @@
             </tr>
             <tr>
                 <td><label for="tele">Telefon</label></td>
-                <td><input type="text" id="tele" name="ktelefon" maxlength="15"></td>
+                <td><input type="text" id="tele" name="ktelefon" maxlength="15" required></td>
             </tr>
             <tr>
                 <td><label for="natel">Natel</label></td>
-                <td><input type="text" id="natel" name="knatel" maxlength="15"></td>
+                <td><input type="text" id="natel" name="knatel" maxlength="15" required></td>
             </tr>
             <tr>
                 <td><label for="adresse">Adresse</label></td>
-                <td><input type="text" id="adresse" name="kadresse" maxlength="50"></td>
+                <td><input type="text" id="adresse" name="kadresse" maxlength="50" required></td>
             </tr>
             <tr>
                 <td><label for="plz">PLZ</label></td>
-                <td><input type="number" id="plz" name="kplz" maxlength="4"></td>
+                <td><input type="number" id="plz" name="kplz" maxlength="4" required></td>
             </tr>
             <tr>
                 <td><label for="ort">Ort</label></td>
-                <td><input type="text" id="ort" name="kort" maxlength="25"></td>
+                <td><input type="text" id="ort" name="kort" maxlength="25" required></td>
             </tr>
             <tr>
                 <td><input type="submit" name="sub" value="erfassen"></td>

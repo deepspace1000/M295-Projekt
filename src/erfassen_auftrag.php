@@ -20,10 +20,16 @@
         <table>
             <tr>
                 <td>
-                    <label for="dateTime">Datum und Zeit: </label>
+                    <label for="date">Datum: </label>
                 </td>
                 <td>
-                    <input type="datetime-local" id="dateTime" name="dateTime" maxlength="25">
+                    <input type="date" id="date" name="date" maxlength="25" required>
+                </td>
+                <td>
+                    <label for="time">Zeit: </label>
+                </td>
+                <td>
+                    <input type="number" id="time" name="time" maxlength="25" step="00.01"  required>
                 </td>
             </tr>
             <tr>
@@ -54,19 +60,19 @@
                     <label for="Arbeit">Abreit: </label>
                 </td>
                 <td>
-                    <input type="checkbox" name="Reparatur" id="Reparatur"> <label for="Reparatur">Reparatur</label>
+                    <input type="checkbox" name="arbeit[]" value="Reparatur" id="Reparatur"> <label for="Reparatur">Reparatur</label>
                 </td>
                 <td>
-                    <input type="checkbox" name="Sanitaer" id="Sanitaer"> <label for="Sanitaer">Sanitär</label>
+                    <input type="checkbox" name="arbeit[]" id="Sanitaer" value="Sanitaer"> <label for="Sanitaer">Sanitär</label>
                 </td>
             </tr>
             <tr id="Arbeit">
                 <td></td>
                 <td>
-                    <input type="checkbox" name="Heizung" id="Heizung"> <label for="Heizung">Heizung</label>
+                    <input type="checkbox" name="arbeit[]" id="Heizung" value="Heizung"> <label for="Heizung">Heizung</label>
                 </td>
                 <td>
-                    <input type="checkbox" name="Garantie" id="Garantie"> <label for="Garantie">Garantie</label>
+                    <input type="checkbox" name="arbeit[]" id="Garantie" value="Garantie"> <label for="Garantie">Garantie</label>
                 </td>
             </tr>
             <tr>
@@ -75,20 +81,19 @@
                 </td>
                 
                 <td>
-                    <input type="text" id="terminWunsch" name="terminWunsch" maxlength="50">
+                    <input type="text" id="terminWunsch" name="terminWunsch" maxlength="50" required>
                 </td>
             </tr>
             <tr>
                 
-                <td>
+                <td >
                     <label for="Kommentar">Kommentar: </label>
                 </td>
                 
             </tr>
             <tr>
                 <td></td>
-                <td></td>
-                <td>
+                <td colspan="3">
                     <textarea name="Kommentar" id="Kommentar" cols="30" rows="5" style="resize: none;" maxlength="255"></textarea>
                 </td>
             </tr>
@@ -104,6 +109,12 @@
     </form>
         
         <button onclick="window.location.href = 'erfassen_kunde.php';">Neuer Kunde</button>
+
+        <?php
+            if(isset($_SESSION['meldungen'])){
+                echo "<p>" . $_SESSION['meldungen'] . "</p>";
+            }
+        ?>
         
        
     

@@ -23,7 +23,7 @@
                     <label for="vorname">Vorname: </label>
                 </td>
                 <td>
-                    <input type="text" id="vorname" name="vorname" maxlength="25">
+                    <input type="text" id="vorname" name="vorname" maxlength="25" required>
                 </td>
             </tr>
             <tr>
@@ -31,7 +31,7 @@
                     <label for="name">Nachname: </label>
                 </td>
                 <td>
-                    <input type="text" id="name" name="name" maxlength="25">
+                    <input type="text" id="name" name="name" maxlength="25" required>
                 </td>
             </tr>
             <tr>
@@ -39,24 +39,24 @@
                     <label for="password">Passwort: </label>
                 </td>
                 <td>
-                    <input type="password" id="password" name="password">
+                    <input type="password" id="password" name="password" required>
                 </td>
             </tr>
             <tr>
                 <td colspan="2">
-                    <input type="radio" id="admin" name="abt" value="1">
+                    <input type="radio" id="admin" name="abt" value="1" required>
                     <label for="admin">Admin</label>
                 </td>
             </tr>
             <tr>
                 <td colspan="2">
-                    <input type="radio" id="bereichsleiter" name="abt" value="2">
+                    <input type="radio" id="bereichsleiter" name="abt" value="2" >
                     <label for="bereichsleiter">Bereichsleiter</label>
                 </td>
             </tr>
             <tr>
                 <td colspan="2">
-                    <input type="radio" id="mitarbeiter" name="abt" value="3">
+                    <input type="radio" id="mitarbeiter" name="abt" value="3" >
                     <label for="mitarbeiter">Mitarbeiter</label>
                 </td>
             </tr>
