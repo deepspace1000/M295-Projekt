@@ -30,7 +30,7 @@
         ON Auftraege.Mitarbeiter = Mitarbeiter.MNR
         LEFT JOIN Kunden
         ON Auftraege.Kunde = Kunden.KNR
-        WHERE Auftraege.Mitarbeiter = $user");
+        WHERE Auftraege.Mitarbeiter = $user AND Auftraege.Freigegeben_Verrechnung = 0");
 
         $query->execute();
 
