@@ -40,7 +40,7 @@
                      
 
                         while($row = $abfrage->fetchObject()){
-                            echo "<option>" . $row->Kunden_Vorname . " " . $row->Kunden_Name . "</option>";
+                            echo "<option value='$row->KNR'>" . $row->Kunden_Vorname . " " . $row->Kunden_Name . "</option>";
                         }
                     ?>
                     </select>
