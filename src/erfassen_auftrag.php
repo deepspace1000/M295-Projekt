@@ -33,10 +33,10 @@
                 <td>
                     <select name="Kunde" id="kunde">
                     <?php
-                         require "db_connection.php";
+                        require "db_connection.php";
 
-                         $abfrage = $con->prepare("SELECT * FROM kunden");
-                         $abfrage->execute();
+                        $abfrage = $con->prepare("SELECT * FROM kunden");
+                        $abfrage->execute();
                      
 
                         while($row = $abfrage->fetchObject()){
