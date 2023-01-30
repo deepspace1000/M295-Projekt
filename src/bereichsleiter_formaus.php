@@ -24,7 +24,15 @@
     }
 
     if($_POST['sub'] == "freigeben"){
+
         $auftragsNr = $_POST['auftrag'];
-        echo $auftragsNr;
+        
+        $statement = $con->prepare("UPDATE Auftraege SET Freigegeben_Verrechnung = 1 WHERE AuftragsNr = $auftragsNr");
+
+        if($statement->execute()){
+            header("Location: index.php");
+            die;
+        }
+        else{echo "Fehler Beim erstellen eines neuen Auftrags!!";}
     }
 ?>
