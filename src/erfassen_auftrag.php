@@ -75,7 +75,7 @@
                 </td>
                 
                 <td>
-                    <input type="text" id="terminWunsch" name="terminWunsch">
+                    <input type="text" id="terminWunsch" name="terminWunsch" maxlength="50">
                 </td>
             </tr>
             <tr>
@@ -89,7 +89,7 @@
                 <td></td>
                 <td></td>
                 <td>
-                    <textarea name="Kommentar" id="Kommentar" cols="30" rows="5" style="resize: none;"></textarea>
+                    <textarea name="Kommentar" id="Kommentar" cols="30" rows="5" style="resize: none;" maxlength="255"></textarea>
                 </td>
             </tr>
             <tr>
