@@ -27,9 +27,9 @@
         $query = $con->prepare(
         "SELECT * 
         FROM Auftraege
-        JOIN Mitarbeiter
+        LEFT JOIN Mitarbeiter
         ON Auftraege.Mitarbeiter = Mitarbeiter.MNR
-        JOIN Kunden
+        LEFT JOIN Kunden
         ON Auftraege.Kunde = Kunden.KNR");
 
         $query->execute();

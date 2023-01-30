@@ -26,9 +26,9 @@
         $query = $con->prepare(
         "SELECT * 
         FROM Auftraege
-        JOIN Mitarbeiter
+        LEFT JOIN Mitarbeiter
         ON Auftraege.Mitarbeiter = Mitarbeiter.MNR
-        JOIN Kunden
+        LEFT JOIN Kunden
         ON Auftraege.Kunde = Kunden.KNR");
 
         $query->execute();
@@ -36,7 +36,6 @@
             echo "<table>";
             echo "<tr><th>AufNr</th><th>Datum</th><th>Zeit</th><th>Kunde</th><th>Mitarbeiter</th><th>Arbeit</th><th>Beschreibung</th></tr>";
             while($row = $query->fetchObject()){
-                
                 echo "<tr>";
                 echo "<td>" . $row->AuftragsNr . "</td>";
                 echo "<td>" . $row->Datum . "</td>";
@@ -45,11 +44,13 @@
                 if(isset($row->Mitarbeiter)){
                     echo "<td>" . $row->Mitarbeiter_Vorname . " " . $row->Mitarbeiter_Name . "</td>";
                 }else{
-                    $abfrage = $con->prepare("SELECT * FROM kunden");
+                    $abfrage = $con->prepare("SELECT * FROM Mitarbeiter");
                     $abfrage->execute();
                     echo "<td>";
                     echo "<select name='mitarbeiter'>";
-                    while($row = $abfrage->fetchObject())
+                    while($mitarbeiterrow = $abfrage->fetchObject()){
+                        echo "<option value='$mitarbeiterrow->MNR'>" . $mitarbeiterrow->Mitarbeiter_Vorname . " " . $mitarbeiterrow->Mitarbeiter_Name . "</option>";
+                    }
                     echo "</select>";
                     echo "</td>";
                 }
