@@ -30,13 +30,13 @@
     
     
 
-            $statement = $con->prepare("INSERT INTO auftraege (Datum, Zeit, Kunde, Terminwunsch, Arbeit, Beschreibung) VALUES ('$datum', $zeit, '$kunde', '$terminWunsch', '$chk', '$kommentar')");
-            
-            if($statement->execute()){
-                header("Location: ansichtadmin.php");
-            }
-            else{echo "Fehler Beim erstellen eines neuen Auftrags!!";}
+    $statement = $con->prepare("INSERT INTO auftraege (Datum, Zeit, Kunde, Terminwunsch, Arbeit, Beschreibung) VALUES ('$datum', $zeit, '$kunde', '$terminWunsch', '$chk', '$kommentar')");
+    
+    if($statement->execute()){
+        header("Location: ansichtadmin.php");
     }
+    else{echo "Fehler Beim erstellen eines neuen Auftrags!!";}
+    
 
    
 
