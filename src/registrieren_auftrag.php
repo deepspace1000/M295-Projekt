@@ -30,7 +30,7 @@
     
     
 
-    $statement = $con->prepare("INSERT INTO auftraege (Datum, Zeit, Kunde, Terminwunsch, Arbeit, Beschreibung) VALUES ('$datum', $zeit, '$kunde', '$terminWunsch', '$chk', '$kommentar')");
+    $statement = $con->prepare("INSERT INTO auftraege (Datum, Zeit, Kunde, Terminwunsch, Arbeit, Beschreibung, Freigegeben_Verrechnung, Verrechnet) VALUES ('$datum', $zeit, '$kunde', '$terminWunsch', '$chk', '$kommentar', 0, 0)");
     
     if($statement->execute()){
         header("Location: ansichtadmin.php");
