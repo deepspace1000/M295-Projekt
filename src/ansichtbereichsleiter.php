@@ -32,7 +32,7 @@
         ON Auftraege.Kunde = Kunden.KNR");
 
         $query->execute();
-        echo "<form acion='' method='POST'>";
+        echo "<form action='mitarbeiterzuprojekt.php' method='POST'>";
             echo "<table>";
             echo "<tr><th>AufNr</th><th>Datum</th><th>Zeit</th><th>Kunde</th><th>Mitarbeiter</th><th>Arbeit</th><th>Beschreibung</th></tr>";
             while($row = $query->fetchObject()){
@@ -44,7 +44,7 @@
                 if(isset($row->Mitarbeiter)){
                     echo "<td>" . $row->Mitarbeiter_Vorname . " " . $row->Mitarbeiter_Name . "</td>";
                 }else{
-                    $abfrage = $con->prepare("SELECT * FROM Mitarbeiter");
+                    $abfrage = $con->prepare("SELECT * FROM Mitarbeiter WHERE Abteilung = '3'");
                     $abfrage->execute();
                     echo "<td>";
                     echo "<select name='mitarbeiter'>";
@@ -56,6 +56,12 @@
                 }
                 echo "<td>" . $row->Arbeit . "</td>";
                 echo "<td>" . $row->Beschreibung . "</td>";
+                if(!isset($row->Mitarbeiter)){
+                    echo "<td>";
+                    echo "<input type='submit' name='sub' value='Mitarbeiter Hinzufügen'>"; 
+                    echo "<input type='hidden' name='auftrag' value='$row->AuftragsNr'>";
+                    echo "</td>";
+                }
                 echo "</tr>";
                 
             }
