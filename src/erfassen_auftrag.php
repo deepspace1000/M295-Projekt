@@ -41,7 +41,7 @@
                     <?php
                         require "db_connection.php";
 
-                        $abfrage = $con->prepare("SELECT * FROM kunden");
+                        $abfrage = $con->prepare("SELECT * FROM Kunden");
                         $abfrage->execute();
                      
 
