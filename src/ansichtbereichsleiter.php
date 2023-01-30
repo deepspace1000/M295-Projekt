@@ -29,7 +29,8 @@
         LEFT JOIN Mitarbeiter
         ON Auftraege.Mitarbeiter = Mitarbeiter.MNR
         LEFT JOIN Kunden
-        ON Auftraege.Kunde = Kunden.KNR");
+        ON Auftraege.Kunde = Kunden.KNR
+        WHERE Auftraege.Freigegeben_Verrechnung = 0");
 
         $query->execute();
         echo "<form action='bereichsleiter_formaus.php' method='POST'>";
@@ -56,12 +57,14 @@
                 }
                 echo "<td>" . $row->Arbeit . "</td>";
                 echo "<td>" . $row->Beschreibung . "</td>";
+                echo "<td>";
                 if(!isset($row->Mitarbeiter)){
-                    echo "<td>";
-                    echo "<input type='submit' name='sub' value='Mitarbeiter Hinzufügen'>"; 
                     echo "<input type='hidden' name='auftrag' value='$row->AuftragsNr'>";
-                    echo "</td>";
+                    echo "<input type='submit' name='sub' value='Mitarbeiter Hinzufügen'>";
                 }
+                echo "</td>";
+                echo "<td>" . "<input type='submit' name='sub' value='freigeben'>" . "</td>";
+               
                 echo "</tr>";
                 
             }

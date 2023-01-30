@@ -6,9 +6,10 @@
 
     require_once "db_connection.php";
 
+     $auftragsNr = $_POST['auftrag'];
+
     if($_POST['sub'] == "Mitarbeiter Hinzufügen"){
         $mitarbeiterNr = $_POST['mitarbeiter'];
-        $auftragsNr = $_POST['auftrag'];
 
         echo $mitarbeiterNr;
         echo $auftragsNr;
@@ -20,5 +21,10 @@
             die;
         }
         else{echo "Fehler Beim erstellen eines neuen Auftrags!!";}
+    }
+
+    if($_POST['sub'] == "freigeben"){
+       
+        echo $auftragsNr;
     }
 ?>
