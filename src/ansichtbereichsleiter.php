@@ -33,43 +33,43 @@
         WHERE Auftraege.Freigegeben_Verrechnung = 0");
 
         $query->execute();
-        echo "<form action='bereichsleiter_formaus.php' method='POST'>";
-            echo "<table>";
-            echo "<tr><th>AufNr</th><th>Datum</th><th>Zeit</th><th>Kunde</th><th>Mitarbeiter</th><th>Arbeit</th><th>Beschreibung</th></tr>";
-            while($row = $query->fetchObject()){
-                echo "<tr>";
-                echo "<td>" . $row->AuftragsNr . "</td>";
-                echo "<td>" . $row->Datum . "</td>";
-                echo "<td>" . $row->Zeit . "</td>";
-                echo "<td>" . $row->Kunden_Vorname . " " . $row->Kunden_Name . "</td>";
-                if(isset($row->Mitarbeiter)){
-                    echo "<td>" . $row->Mitarbeiter_Vorname . " " . $row->Mitarbeiter_Name . "</td>";
-                }else{
-                    $abfrage = $con->prepare("SELECT * FROM Mitarbeiter WHERE Abteilung = '3'");
-                    $abfrage->execute();
-                    echo "<td>";
-                    echo "<select name='mitarbeiter'>";
-                    while($mitarbeiterrow = $abfrage->fetchObject()){
-                        echo "<option value='$mitarbeiterrow->MNR'>" . $mitarbeiterrow->Mitarbeiter_Vorname . " " . $mitarbeiterrow->Mitarbeiter_Name . "</option>";
-                    }
-                    echo "</select>";
-                    echo "</td>";
-                }
-                echo "<td>" . $row->Arbeit . "</td>";
-                echo "<td>" . $row->Beschreibung . "</td>";
+        
+        echo "<table>";
+        echo "<tr><th>AufNr</th><th>Datum</th><th>Zeit</th><th>Kunde</th><th>Mitarbeiter</th><th>Arbeit</th><th>Beschreibung</th></tr>";
+        while($row = $query->fetchObject()){
+            echo "<form action='bereichsleiter_formaus.php' method='POST'>";
+            echo "<tr>";
+            echo "<td>" . $row->AuftragsNr . "</td>";
+            echo "<td>" . $row->Datum . "</td>";
+            echo "<td>" . $row->Zeit . "</td>";
+            echo "<td>" . $row->Kunden_Vorname . " " . $row->Kunden_Name . "</td>";
+            if(isset($row->Mitarbeiter)){
+                echo "<td>" . $row->Mitarbeiter_Vorname . " " . $row->Mitarbeiter_Name . "</td>";
+            }else{
+                $abfrage = $con->prepare("SELECT * FROM Mitarbeiter WHERE Abteilung = '3'");
+                $abfrage->execute();
                 echo "<td>";
-                if(!isset($row->Mitarbeiter)){
-                    echo "<input type='hidden' name='auftrag' value='$row->AuftragsNr'>";
-                    echo "<input type='submit' name='sub' value='Mitarbeiter Hinzufügen'>";
+                echo "<select name='mitarbeiter'>";
+                while($mitarbeiterrow = $abfrage->fetchObject()){
+                    echo "<option value='$mitarbeiterrow->MNR'>" . $mitarbeiterrow->Mitarbeiter_Vorname . " " . $mitarbeiterrow->Mitarbeiter_Name . "</option>";
                 }
+                echo "</select>";
                 echo "</td>";
-                echo "<td>" . "<input type='submit' name='sub' value='freigeben'>" . "</td>";
-               
-                echo "</tr>";
-                
             }
-            echo "</table>";
-        echo "</form>";
+            echo "<td>" . $row->Arbeit . "</td>";
+            echo "<td>" . $row->Beschreibung . "</td>";
+            echo "<td>";
+            if(!isset($row->Mitarbeiter)){
+                echo "<input type='submit' name='sub' value='Mitarbeiter Hinzufügen'>";
+            }
+            echo "</td>";
+            echo "<td>" . "<input type='submit' name='sub' value='freigeben'>" . "</td>";
+            echo "<td>" . "<input type='hidden' name='auftrag' value='$row->AuftragsNr'>" . "</td>";
+            echo "</tr>";
+            echo "</form>";
+        }
+        echo "</table>";
+       
 
         
     ?>

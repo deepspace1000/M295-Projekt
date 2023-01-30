@@ -6,13 +6,12 @@
 
     require_once "db_connection.php";
 
-     $auftragsNr = $_POST['auftrag'];
+     
 
     if($_POST['sub'] == "Mitarbeiter Hinzufügen"){
-        $mitarbeiterNr = $_POST['mitarbeiter'];
 
-        echo $mitarbeiterNr;
-        echo $auftragsNr;
+        $auftragsNr = $_POST['auftrag'];
+        $mitarbeiterNr = $_POST['mitarbeiter'];
 
         $statement = $con->prepare("UPDATE Auftraege SET Mitarbeiter = $mitarbeiterNr WHERE AuftragsNr = $auftragsNr");
 
@@ -21,10 +20,11 @@
             die;
         }
         else{echo "Fehler Beim erstellen eines neuen Auftrags!!";}
+        
     }
 
     if($_POST['sub'] == "freigeben"){
-       
+        $auftragsNr = $_POST['auftrag'];
         echo $auftragsNr;
     }
 ?>
