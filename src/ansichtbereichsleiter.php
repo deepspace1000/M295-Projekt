@@ -44,6 +44,14 @@
                 echo "<td>" . $row->Kunden_Vorname . " " . $row->Kunden_Name . "</td>";
                 if(isset($row->Mitarbeiter)){
                     echo "<td>" . $row->Mitarbeiter_Vorname . " " . $row->Mitarbeiter_Name . "</td>";
+                }else{
+                    $abfrage = $con->prepare("SELECT * FROM kunden");
+                    $abfrage->execute();
+                    echo "<td>";
+                    echo "<select name='mitarbeiter'>";
+                    while($row = $abfrage->fetchObject())
+                    echo "</select>";
+                    echo "</td>";
                 }
                 echo "<td>" . $row->Arbeit . "</td>";
                 echo "<td>" . $row->Beschreibung . "</td>";
