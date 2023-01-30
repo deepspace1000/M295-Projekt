@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Erstellungszeit: 30. Jan 2023 um 20:18
+-- Erstellungszeit: 30. Jan 2023 um 21:35
 -- Server-Version: 10.4.21-MariaDB
 -- PHP-Version: 8.1.2
 
@@ -53,7 +53,7 @@ CREATE TABLE `Auftraege` (
   `Zeit` double(4,2) NOT NULL,
   `Kunde` int(11) NOT NULL,
   `Mitarbeiter` int(11) DEFAULT NULL,
-  `Adresse_Objekt` varchar(50) NOT NULL,
+  `Adresse_Objekt` varchar(50) DEFAULT NULL,
   `Terminwunsch` varchar(50) NOT NULL,
   `Arbeit` varchar(200) NOT NULL,
   `Beschreibung` varchar(255) NOT NULL,
@@ -66,7 +66,10 @@ CREATE TABLE `Auftraege` (
 --
 
 INSERT INTO `Auftraege` (`AuftragsNr`, `Datum`, `Zeit`, `Kunde`, `Mitarbeiter`, `Adresse_Objekt`, `Terminwunsch`, `Arbeit`, `Beschreibung`, `Freigegeben_Verrechnung`, `Verrechnet`) VALUES
-(1, '2023-01-25', 10.30, 1, 1, 'dito', 'wend ziit hesch chasch mal verbii cho', '', 'Miis Huus isch explodiert', 0, 0);
+(1, '2023-01-25', 10.30, 1, 1, 'dito', 'wend ziit hesch chasch mal verbii cho', '', 'Miis Huus isch explodiert', 0, 0),
+(2, '2023-01-04', 10.30, 1, 3, NULL, 'morgen', 'Reparatur,', '', 0, 0),
+(3, '2023-01-11', 10.30, 1, 3, NULL, 'asdf', 'Heizung,Garantie,', '', 0, 0),
+(4, '2023-01-12', 13.30, 2, 3, NULL, 'asdf', 'Reparatur,', 'asdfasdf', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -162,7 +165,7 @@ ALTER TABLE `Abteilung`
 -- AUTO_INCREMENT für Tabelle `Auftraege`
 --
 ALTER TABLE `Auftraege`
-  MODIFY `AuftragsNr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `AuftragsNr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT für Tabelle `Kunden`
