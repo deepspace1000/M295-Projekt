@@ -100,14 +100,13 @@
                     <input type="submit" name="sub" value="abbrechen">
                 </td>
             </tr>
-        
+        </table>
     </form>
-        <tr>
-            <td>
-                <button onclick="window.location.href = 'erfassen_kunde.php';">Neuer Kunde</button>
-            </td>
-        </tr>         
-    </table>
+        
+        <button onclick="window.location.href = 'erfassen_kunde.php';">Neuer Kunde</button>
+        
+       
+    
 </body>
 </html>
 </body>
