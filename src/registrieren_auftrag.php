@@ -33,7 +33,7 @@
     $statement = $con->prepare("INSERT INTO auftraege (Datum, Zeit, Kunde, Terminwunsch, Arbeit, Beschreibung, Freigegeben_Verrechnung, Verrechnet) VALUES ('$datum', $zeit, '$kunde', '$terminWunsch', '$chk', '$kommentar', 0, 0)");
     
     if($statement->execute()){
-        header("Location: ansichtadmin.php");
+        header("Location: index.php");
     }
     else{echo "Fehler Beim erstellen eines neuen Auftrags!!";}
     

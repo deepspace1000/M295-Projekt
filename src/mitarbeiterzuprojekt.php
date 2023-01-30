@@ -15,7 +15,7 @@
     $statement = $con->prepare("UPDATE Auftraege SET Mitarbeiter = $mitarbeiterNr WHERE AuftragsNr = $auftragsNr");
 
     if($statement->execute()){
-        header("Location: ansichtadmin.php");
+        header("Location: index.php");
     }
     else{echo "Fehler Beim erstellen eines neuen Auftrags!!";}
 ?>
