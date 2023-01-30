@@ -24,23 +24,25 @@
         require_once "db_connection.php";
 
         //$query = "SELECT * FROM Mitarbeiter WHERE MNR = '$loginID'";
-        $query = 
+        $query = $con->prepare(
         "SELECT * 
         FROM Auftraege
         JOIN Mitarbeiter
-        ON Auftraege.Mitarbeiter = Mitarbeiter.MNR";
+        ON Auftraege.Mitarbeiter = Mitarbeiter.MNR
+        JOIN Kunden
+        ON Auftraege.Kunde = Kunden.KNR");
 
-        $ergebnis = $con->query($query);
+        $query->execute();
 
         echo "<table>";
         echo "<tr><th>AufNr</th><th>Datum</th><th>Zeit</th><th>Kunde</th><th>MitName</th><th>Beschreibung</th></tr>";
-        while($row = $ergebnis->fetchObject()){
+        while($row = $query->fetchObject()){
             echo "<tr>";
             echo "<td>" . $row->AuftragsNr . "</td>";
             echo "<td>" . $row->Datum . "</td>";
             echo "<td>" . $row->Zeit . "</td>";
-            echo "<td>" . $row->Kunde . "</td>";
-            echo "<td>" . $row->Mitarbeiter_Name . "</td>";
+            echo "<td>" . $row->Kunden_Vorname . " " . $row->Kunden_Name . "</td>";
+            echo "<td>" . $row->Mitarbeiter_Vorname . " " . $row->Mitarbeiter_Name . "</td>";
             echo "<td>" . $row->Beschreibung . "</td>";
             echo "</tr>";
             
