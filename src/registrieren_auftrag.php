@@ -8,28 +8,29 @@
     {
         $_SESSION['meldungen'] = "Keinen Auftrag asugewählt";
         header("Location: erfassen_auftrag.php"); 
+        die;
     }
-    else
+
+   
+    unset($_SESSION['meldungen']);
+    require_once "db_connection.php";
+
+    $datum = $_POST['date'];
+    $zeit = $_POST['time'];
+    $kunde = $_POST['Kunde'];
+    $checkbox = $_POST['arbeit'];
+    $chk = "";
+    $terminWunsch = $_POST['terminWunsch'];
+    $kommentar = $_POST['Kommentar'];
+
+    foreach($checkbox as $chkbox)
     {
-            unset($_SESSION['meldungen']);
-            require_once "db_connection.php";
+        $chk .= $chkbox . ",";
+    }
+    
+    
 
-            $datum = $_POST['date'];
-            $zeit = $_POST['time'];
-            $kunde = $_POST['Kunde'];
-            $checkbox = $_POST['arbeit'];
-            $chk = "";
-            $terminWunsch = $_POST['terminWunsch'];
-            $kommentar = $_POST['Kommentar'];
-
-            foreach($checkbox as $chkbox)
-            {
-                $chk .= $chkbox . ",";
-            }
-            
-            
-
-            $statement = $con->prepare("INSERT INTO auftraege (Datum, Zeit, Kunde, Terminwunsch, Arbeit, Beschreibung, Freigegeben_Verrechnung, Verrechnet) VALUES ('$datum', $zeit, '$kunde', '$terminWunsch', '$chk', '$kommentar', 0, 0)");
+            $statement = $con->prepare("INSERT INTO auftraege (Datum, Zeit, Kunde, Terminwunsch, Arbeit, Beschreibung) VALUES ('$datum', $zeit, '$kunde', '$terminWunsch', '$chk', '$kommentar')");
             
             if($statement->execute()){
                 header("Location: ansichtadmin.php");
