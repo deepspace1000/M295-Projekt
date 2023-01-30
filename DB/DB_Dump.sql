@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Erstellungszeit: 30. Jan 2023 um 13:25
+-- Erstellungszeit: 30. Jan 2023 um 20:18
 -- Server-Version: 10.4.21-MariaDB
 -- PHP-Version: 8.1.2
 
@@ -52,7 +52,7 @@ CREATE TABLE `Auftraege` (
   `Datum` date NOT NULL,
   `Zeit` double(4,2) NOT NULL,
   `Kunde` int(11) NOT NULL,
-  `Mitarbeiter` int(11) NOT NULL,
+  `Mitarbeiter` int(11) DEFAULT NULL,
   `Adresse_Objekt` varchar(50) NOT NULL,
   `Terminwunsch` varchar(50) NOT NULL,
   `Arbeit` varchar(200) NOT NULL,
@@ -114,7 +114,8 @@ CREATE TABLE `Mitarbeiter` (
 
 INSERT INTO `Mitarbeiter` (`MNR`, `Mitarbeiter_Name`, `Mitarbeiter_Vorname`, `Abteilung`, `Passwort`) VALUES
 (1, 'Rothe', 'Nils', 1, '$2y$10$k1GPMvSD8Ya3pFpis3KDpuZnRTzB9vEhR4dLe3lN3JHiG3Q3RhlV6'),
-(2, 'Wenzler', 'Ale', 2, '$2y$10$2adBl6s.Yk/ZT46EvoGlAuRaI1.Mxn7dvRTqguvRcz4wwit0PfOEe');
+(2, 'Wenzler', 'Ale', 2, '$2y$10$2adBl6s.Yk/ZT46EvoGlAuRaI1.Mxn7dvRTqguvRcz4wwit0PfOEe'),
+(3, 'Moser', 'Shay', 3, '$2y$10$dpN0nTwGBHevxof5uaJJYuyQ1PJwIOqcM05WMKWP2v0LHrRQ0P67W');
 
 --
 -- Indizes der exportierten Tabellen
@@ -173,7 +174,7 @@ ALTER TABLE `Kunden`
 -- AUTO_INCREMENT für Tabelle `Mitarbeiter`
 --
 ALTER TABLE `Mitarbeiter`
-  MODIFY `MNR` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `MNR` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints der exportierten Tabellen
