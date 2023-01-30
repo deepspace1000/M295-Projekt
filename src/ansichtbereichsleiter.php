@@ -32,7 +32,7 @@
         ON Auftraege.Kunde = Kunden.KNR");
 
         $query->execute();
-        echo "<form action='mitarbeiterzuprojekt.php' method='POST'>";
+        echo "<form action='bereichsleiter_formaus.php' method='POST'>";
             echo "<table>";
             echo "<tr><th>AufNr</th><th>Datum</th><th>Zeit</th><th>Kunde</th><th>Mitarbeiter</th><th>Arbeit</th><th>Beschreibung</th></tr>";
             while($row = $query->fetchObject()){
