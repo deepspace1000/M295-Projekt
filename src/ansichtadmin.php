@@ -35,8 +35,9 @@
         $query->execute();
 
         echo "<table>";
-        echo "<tr><th>AufNr</th><th>Datum</th><th>Zeit</th><th>Kunde</th><th>Mitarbeiter</th><th>Arbeit</th><th>Beschreibung</th></tr>";
+        echo "<tr><th>AufNr</th><th>Datum</th><th>Zeit</th><th>Kunde</th><th>Mitarbeiter</th><th>Arbeit</th><th>Beschreibung</th><th>Freigegeben</th><th>Verrechnet</th></tr>";
         while($row = $query->fetchObject()){
+            echo "<form action='admin_formaus.php' method='POST'>";
             echo "<tr>";
             echo "<td>" . $row->AuftragsNr . "</td>";
             echo "<td>" . $row->Datum . "</td>";
@@ -45,7 +46,17 @@
             echo "<td>" . $row->Mitarbeiter_Vorname . " " . $row->Mitarbeiter_Name . "</td>";
             echo "<td>" . $row->Arbeit . "</td>";
             echo "<td>" . $row->Beschreibung . "</td>";
+            if($row->Freigegeben_Verrechnung == 0){
+                echo "<td> <input type='checkbox' disabled='disabled'></td>";
+            } else {echo "<td> <input type='checkbox' disabled='disabled' checked='checked'></td>";}
+            if($row->Verrechnet == 0 && $row->Freigegeben_Verrechnung == 1){
+                echo "<td> <input type='submit' name='sub' value='verrechnen'></td>";
+            }elseif($row->Verrechnet == 0 && $row->Freigegeben_Verrechnung == 0){
+                echo "<td> <input type='checkbox' disabled='disabled'></td>";
+            }else {echo "<td> <input type='checkbox' disabled='disabled' checked='checked'></td>";}
+            echo "<td>" . "<input type='hidden' name='auftrag' value='$row->AuftragsNr'>" . "</td>";
             echo "</tr>";
+            echo "</form>";
             
         }
         echo "</table>";
