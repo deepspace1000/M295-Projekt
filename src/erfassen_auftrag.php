@@ -3,12 +3,6 @@
         header("Location: index.php");
         die;
     }
-
-    require "db_connection.php";
-
-    $abfrage = $con->prepare("SELECT * FROM kunden");
-    $abfrage->execute();
-
 ?>
 
 <!DOCTYPE html>
@@ -38,24 +32,17 @@
                 </td>
                 <td>
                     <select name="Kunde" id="kunde">
-                        <?php
+                    <?php
+                         require "db_connection.php";
 
-                            while($kunde = $abfrage->fetchAll(PDO::FETCH_ASSOC)):;
+                         $abfrage = $con->prepare("SELECT * FROM kunden");
+                         $abfrage->execute();
+                     
 
-                        ?>
-                            
-
-                            <?php 
-                                for($i = 0;$i<count($kunde);$i++){
-                                    echo "<option>" . $kunde[$i]["Kunden_Vorname"] . " " . $kunde[$i]["Kunden_Name"]. "</option>";
-                                }
-                                
-                            ?>
-                            
-                            
-                            <?php
-                                endwhile;
-                            ?>
+                        while($row = $abfrage->fetchObject()){
+                            echo "<option>" . $row->Kunden_Vorname . " " . $row->Kunden_Name . "</option>";
+                        }
+                    ?>
                     </select>
                 </td>
                 <td>
