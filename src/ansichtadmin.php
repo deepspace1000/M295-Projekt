@@ -54,6 +54,7 @@
             }elseif($row->Verrechnet == 0 && $row->Freigegeben_Verrechnung == 0){
                 echo "<td> <input type='checkbox' disabled='disabled'></td>";
             }else {echo "<td> <input type='checkbox' disabled='disabled' checked='checked'></td>";}
+            echo "<td>" . "<input type='submit' name='sub' value='pdf'>" . "</td>";
             echo "<td>" . "<input type='hidden' name='auftrag' value='$row->AuftragsNr'>" . "</td>";
             echo "</tr>";
             echo "</form>";
