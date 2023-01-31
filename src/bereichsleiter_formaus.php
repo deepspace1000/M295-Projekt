@@ -8,10 +8,12 @@
 
      
 
-    if($_POST['sub'] == "Mitarbeiter Hinzufügen"){
+    if($_POST['sub'] == "disponieren"){
 
         $auftragsNr = $_POST['auftrag'];
         $mitarbeiterNr = $_POST['mitarbeiter'];
+        $datum = $_POST['date'];
+        $time = $_POST['time'];
 
         $statement = $con->prepare("UPDATE Auftraege SET Mitarbeiter = $mitarbeiterNr WHERE AuftragsNr = $auftragsNr");
 

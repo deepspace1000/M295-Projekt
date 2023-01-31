@@ -41,8 +41,16 @@
             echo "<tr>";
             echo "<td>" . $row->AuftragsNr . "</td>";
             echo "<td>" . $row->Terminwunsch . "</td>";
-            echo "<td>" . $row->Datum . "</td>";
-            echo "<td>" . $row->Zeit . "</td>";
+            if(isset($row->Datum)){
+                echo "<td>" . $row->Datum . "</td>";
+            }else {
+                echo "<td>" . "<input type='date' name='date' maxlength='25' required>" . "</td>";
+            }
+            if(isset($row->Ztei)){
+                echo "<td>" . $row->Zeit . "</td>";
+            }else{
+                echo "<td>" . "<input type='number'name='time' maxlength='25' step='00.01'  required>" . "</td>";
+            }
             echo "<td>" . $row->Kunden_Vorname . " " . $row->Kunden_Name . "</td>";
             if(isset($row->Mitarbeiter)){
                 echo "<td>" . $row->Mitarbeiter_Vorname . " " . $row->Mitarbeiter_Name . "</td>";
@@ -67,7 +75,7 @@
             }
         
             if(!isset($row->Mitarbeiter)){
-                echo "<td>" . "<input type='submit' name='sub' value='Mitarbeiter Hinzufügen'>" . "</td>";
+                echo "<td>" . "<input type='submit' name='sub' value='disponieren'>" . "</td>";
             }
             echo "<td>" . "<input type='hidden' name='auftrag' value='$row->AuftragsNr'>" . "</td>";
             echo "</tr>";
