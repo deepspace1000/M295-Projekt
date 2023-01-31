@@ -15,8 +15,6 @@
     unset($_SESSION['meldungen']);
     require_once "db_connection.php";
 
-    $datum = $_POST['date'];
-    $zeit = $_POST['time'];
     $kunde = $_POST['Kunde'];
     $checkbox = $_POST['arbeit'];
     $chk = "";
@@ -30,7 +28,7 @@
     
     
 
-    $statement = $con->prepare("INSERT INTO auftraege (Datum, Zeit, Kunde, Terminwunsch, Arbeit, Beschreibung, Ausgefuehrt, Freigegeben_Verrechnung, Verrechnet) VALUES ('$datum', $zeit, '$kunde', '$terminWunsch', '$chk', '$kommentar', 0, 0, 0)");
+    $statement = $con->prepare("INSERT INTO auftraege (Kunde, Terminwunsch, Arbeit, Beschreibung, Ausgefuehrt, Freigegeben_Verrechnung, Verrechnet) VALUES ('$kunde', '$terminWunsch', '$chk', '$kommentar', 0, 0, 0)");
     
     if($statement->execute()){
         header("Location: index.php");

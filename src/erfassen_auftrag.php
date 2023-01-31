@@ -20,20 +20,6 @@
         <table>
             <tr>
                 <td>
-                    <label for="date">Datum: </label>
-                </td>
-                <td>
-                    <input type="date" id="date" name="date" maxlength="25" required>
-                </td>
-                <td>
-                    <label for="time">Zeit: </label>
-                </td>
-                <td>
-                    <input type="number" id="time" name="time" maxlength="25" step="00.01"  required>
-                </td>
-            </tr>
-            <tr>
-                <td>
                     <label for="kunde">Kunde: </label>
                 </td>
                 <td>

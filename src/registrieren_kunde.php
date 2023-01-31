@@ -18,7 +18,7 @@
     $statement = $con->prepare("INSERT INTO Kunden (Kunden_Name, Kunden_Vorname, Geschlecht, Telefon, Natel, Adresse, PLZ, Ort) VALUES ('$name', '$vorname', '$geschlecht', '$telefon', '$natel', '$adresse', $plz, '$ort')");
     
     if($statement->execute()){
-        header("Location: index.php");
+        header("Location: erfassen_auftrag.php");
         die;
     }
     else{echo "Fehler Beim erstellen des neuen Kunden!!";}
