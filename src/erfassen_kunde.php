@@ -55,9 +55,9 @@
             </tr>
             <tr>
                 <td><input type="submit" name="sub" value="erfassen"></td>
-                <td><input type="submit" name="sub" value="abbrechen"></td>
             </tr>
         </table>
     </form>
+    <button onclick="window.location.href = 'index.php';">abbrechen</button>
 </body>
 </html>
