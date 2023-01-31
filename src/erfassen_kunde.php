@@ -58,6 +58,6 @@
             </tr>
         </table>
     </form>
-    <button onclick="window.location.href = 'index.php';">abbrechen</button>
+    <button onclick="window.location.href = 'erfassen_auftrag.php';">abbrechen</button>
 </body>
 </html>

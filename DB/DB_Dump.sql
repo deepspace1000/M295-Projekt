@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Erstellungszeit: 30. Jan 2023 um 21:35
+-- Erstellungszeit: 31. Jan 2023 um 14:46
 -- Server-Version: 10.4.21-MariaDB
 -- PHP-Version: 8.1.2
 
@@ -49,14 +49,15 @@ INSERT INTO `Abteilung` (`AbtNr`, `AbtName`) VALUES
 
 CREATE TABLE `Auftraege` (
   `AuftragsNr` int(11) NOT NULL,
-  `Datum` date NOT NULL,
-  `Zeit` double(4,2) NOT NULL,
+  `Datum` date DEFAULT NULL,
+  `Zeit` double(4,2) DEFAULT NULL,
   `Kunde` int(11) NOT NULL,
   `Mitarbeiter` int(11) DEFAULT NULL,
   `Adresse_Objekt` varchar(50) DEFAULT NULL,
   `Terminwunsch` varchar(50) NOT NULL,
   `Arbeit` varchar(200) NOT NULL,
   `Beschreibung` varchar(255) NOT NULL,
+  `Ausgefuehrt` tinyint(1) NOT NULL,
   `Freigegeben_Verrechnung` tinyint(1) NOT NULL,
   `Verrechnet` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -65,11 +66,16 @@ CREATE TABLE `Auftraege` (
 -- Daten für Tabelle `Auftraege`
 --
 
-INSERT INTO `Auftraege` (`AuftragsNr`, `Datum`, `Zeit`, `Kunde`, `Mitarbeiter`, `Adresse_Objekt`, `Terminwunsch`, `Arbeit`, `Beschreibung`, `Freigegeben_Verrechnung`, `Verrechnet`) VALUES
-(1, '2023-01-25', 10.30, 1, 1, 'dito', 'wend ziit hesch chasch mal verbii cho', '', 'Miis Huus isch explodiert', 0, 0),
-(2, '2023-01-04', 10.30, 1, 3, NULL, 'morgen', 'Reparatur,', '', 0, 0),
-(3, '2023-01-11', 10.30, 1, 3, NULL, 'asdf', 'Heizung,Garantie,', '', 0, 0),
-(4, '2023-01-12', 13.30, 2, 3, NULL, 'asdf', 'Reparatur,', 'asdfasdf', 0, 0);
+INSERT INTO `Auftraege` (`AuftragsNr`, `Datum`, `Zeit`, `Kunde`, `Mitarbeiter`, `Adresse_Objekt`, `Terminwunsch`, `Arbeit`, `Beschreibung`, `Ausgefuehrt`, `Freigegeben_Verrechnung`, `Verrechnet`) VALUES
+(1, '2023-01-25', 10.30, 1, 1, 'dito', 'wend ziit hesch chasch mal verbii cho', '', 'Miis Huus isch explodiert', 0, 1, 1),
+(2, '2023-01-04', 10.30, 1, 3, NULL, 'morgen', 'Reparatur,', '', 0, 1, 1),
+(3, '2023-01-11', 10.30, 1, 3, NULL, 'asdf', 'Heizung,Garantie,', '', 0, 1, 1),
+(4, '2023-01-12', 13.30, 2, 3, NULL, 'asdf', 'Reparatur,', 'asdfasdf', 0, 1, 1),
+(5, '2023-01-19', 12.30, 1, 4, NULL, 'asdf', 'Reparatur,Sanitaer,Heizung,Garantie,', 'asdfasdfasdf', 0, 1, 1),
+(6, '2023-01-11', 10.60, 2, 3, NULL, 'sadf', 'Reparatur,', 'asdfasdf', 0, 0, 0),
+(7, '2023-01-11', 10.50, 1, 4, NULL, 'asfdasfd', 'Reparatur,Heizung,Garantie,', 'asdfasddfasdfasdfasdf', 0, 0, 0),
+(8, '2023-01-12', 10.10, 2, 3, NULL, 'kp', 'Reparatur, Sanitaer, Heizung, Garantie, ', 'isch mer egal\r\n', 0, 1, 1),
+(9, '2023-01-10', 10.43, 2, 4, NULL, 'ko', 'Reparatur, Sanitaer, ', 'asdfasdf', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -118,7 +124,8 @@ CREATE TABLE `Mitarbeiter` (
 INSERT INTO `Mitarbeiter` (`MNR`, `Mitarbeiter_Name`, `Mitarbeiter_Vorname`, `Abteilung`, `Passwort`) VALUES
 (1, 'Rothe', 'Nils', 1, '$2y$10$k1GPMvSD8Ya3pFpis3KDpuZnRTzB9vEhR4dLe3lN3JHiG3Q3RhlV6'),
 (2, 'Wenzler', 'Ale', 2, '$2y$10$2adBl6s.Yk/ZT46EvoGlAuRaI1.Mxn7dvRTqguvRcz4wwit0PfOEe'),
-(3, 'Moser', 'Shay', 3, '$2y$10$dpN0nTwGBHevxof5uaJJYuyQ1PJwIOqcM05WMKWP2v0LHrRQ0P67W');
+(3, 'Moser', 'Shay', 3, '$2y$10$dpN0nTwGBHevxof5uaJJYuyQ1PJwIOqcM05WMKWP2v0LHrRQ0P67W'),
+(4, 'brunner', 'Martin', 3, '$2y$10$qt7ofdRgk7gS/mRyDVEy0.oe6x25yVjCCOZtAKdERpteFlQBylNm.');
 
 --
 -- Indizes der exportierten Tabellen
@@ -165,7 +172,7 @@ ALTER TABLE `Abteilung`
 -- AUTO_INCREMENT für Tabelle `Auftraege`
 --
 ALTER TABLE `Auftraege`
-  MODIFY `AuftragsNr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `AuftragsNr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT für Tabelle `Kunden`
@@ -177,7 +184,7 @@ ALTER TABLE `Kunden`
 -- AUTO_INCREMENT für Tabelle `Mitarbeiter`
 --
 ALTER TABLE `Mitarbeiter`
-  MODIFY `MNR` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `MNR` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints der exportierten Tabellen
