@@ -35,11 +35,12 @@
         $query->execute();
         
         echo "<table>";
-        echo "<tr><th>AufNr</th><th>Datum</th><th>Zeit</th><th>Kunde</th><th>Mitarbeiter</th><th>Arbeit</th><th>Beschreibung</th><th>Ausgefuehrt</th></tr>";
+        echo "<tr><th>AufNr</th><th>Terminwunsch</th><th>Datum</th><th>Zeit</th><th>Kunde</th><th>Mitarbeiter</th><th>Arbeit</th><th>Beschreibung</th><th>Ausgefuehrt</th></tr>";
         while($row = $query->fetchObject()){
             echo "<form action='bereichsleiter_formaus.php' method='POST'>";
             echo "<tr>";
             echo "<td>" . $row->AuftragsNr . "</td>";
+            echo "<td>" . $row->Terminwunsch . "</td>";
             echo "<td>" . $row->Datum . "</td>";
             echo "<td>" . $row->Zeit . "</td>";
             echo "<td>" . $row->Kunden_Vorname . " " . $row->Kunden_Name . "</td>";
