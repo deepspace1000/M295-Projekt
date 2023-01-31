@@ -34,6 +34,7 @@
     
     if($statement->execute()){
         header("Location: index.php");
+        die;
     }
     else{echo "Fehler Beim erstellen eines neuen Auftrags!!";}
     

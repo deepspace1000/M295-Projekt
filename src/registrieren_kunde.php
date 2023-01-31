@@ -19,6 +19,7 @@
     
     if($statement->execute()){
         header("Location: index.php");
+        die;
     }
     else{echo "Fehler Beim erstellen des neuen Kunden!!";}
 
