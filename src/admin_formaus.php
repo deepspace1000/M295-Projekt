@@ -7,7 +7,9 @@
     if($_POST['sub'] == "pdf"){
         $_SESSION['auftragsnr'] = $_POST['auftrag'];
         header("Location: pdf.php");
+        die;
     }
+    
     if($_POST['sub'] == "verrechnen"){
         require_once "db_connection.php";
 

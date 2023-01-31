@@ -77,6 +77,7 @@
             if(!isset($row->Mitarbeiter)){
                 echo "<td>" . "<input type='submit' name='sub' value='disponieren'>" . "</td>";
             }
+            echo "<td>" . "<input type='submit' name='sub' value='pdf'>" . "</td>";
             echo "<td>" . "<input type='hidden' name='auftrag' value='$row->AuftragsNr'>" . "</td>";
             echo "</tr>";
             echo "</form>";
