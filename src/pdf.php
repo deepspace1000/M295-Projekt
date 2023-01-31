@@ -31,7 +31,7 @@
     <title>PDF</title>
 </head>
 <!-- onLoad="window.print()" -->
-<body onLoad="window.print()">
+<body>
     <h1>SERVICEAUFTRAG</h1>
     <p>------------------</p>
     <p>Datum: <?php echo $row->Datum; ?></p>
