@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Erstellungszeit: 29. Jan 2023 um 14:56
+-- Erstellungszeit: 31. Jan 2023 um 14:46
 -- Server-Version: 10.4.21-MariaDB
 -- PHP-Version: 8.1.2
 
@@ -44,39 +44,20 @@ INSERT INTO `Abteilung` (`AbtNr`, `AbtName`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `Arbeit`
---
-
-CREATE TABLE `Arbeit` (
-  `ArbeitNr` int(11) NOT NULL,
-  `Arbeit` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Daten für Tabelle `Arbeit`
---
-
-INSERT INTO `Arbeit` (`ArbeitNr`, `Arbeit`) VALUES
-(1, 'Reperatur'),
-(2, 'Sanitär'),
-(3, 'Heizung'),
-(4, 'Garantie');
-
--- --------------------------------------------------------
-
---
 -- Tabellenstruktur für Tabelle `Auftraege`
 --
 
 CREATE TABLE `Auftraege` (
   `AuftragsNr` int(11) NOT NULL,
-  `Datum` date NOT NULL,
-  `Zeit` double(4,2) NOT NULL,
+  `Datum` date DEFAULT NULL,
+  `Zeit` double(4,2) DEFAULT NULL,
   `Kunde` int(11) NOT NULL,
-  `Mitarbeiter` int(11) NOT NULL,
-  `Adresse_Objekt` varchar(50) NOT NULL,
+  `Mitarbeiter` int(11) DEFAULT NULL,
+  `Adresse_Objekt` varchar(50) DEFAULT NULL,
   `Terminwunsch` varchar(50) NOT NULL,
+  `Arbeit` varchar(200) NOT NULL,
   `Beschreibung` varchar(255) NOT NULL,
+  `Ausgefuehrt` tinyint(1) NOT NULL,
   `Freigegeben_Verrechnung` tinyint(1) NOT NULL,
   `Verrechnet` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -85,26 +66,16 @@ CREATE TABLE `Auftraege` (
 -- Daten für Tabelle `Auftraege`
 --
 
-INSERT INTO `Auftraege` (`AuftragsNr`, `Datum`, `Zeit`, `Kunde`, `Mitarbeiter`, `Adresse_Objekt`, `Terminwunsch`, `Beschreibung`, `Freigegeben_Verrechnung`, `Verrechnet`) VALUES
-(1, '2023-01-25', 10.30, 1, 1, 'dito', 'wend ziit hesch chasch mal verbii cho', 'Miis Huus isch explodiert', 0, 0);
-
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `Auftrag-Arbeit`
---
-
-CREATE TABLE `Auftrag-Arbeit` (
-  `ArbeitNr` int(11) NOT NULL,
-  `AuftragsNr` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Daten für Tabelle `Auftrag-Arbeit`
---
-
-INSERT INTO `Auftrag-Arbeit` (`ArbeitNr`, `AuftragsNr`) VALUES
-(3, 1);
+INSERT INTO `Auftraege` (`AuftragsNr`, `Datum`, `Zeit`, `Kunde`, `Mitarbeiter`, `Adresse_Objekt`, `Terminwunsch`, `Arbeit`, `Beschreibung`, `Ausgefuehrt`, `Freigegeben_Verrechnung`, `Verrechnet`) VALUES
+(1, '2023-01-25', 10.30, 1, 1, 'dito', 'wend ziit hesch chasch mal verbii cho', '', 'Miis Huus isch explodiert', 0, 1, 1),
+(2, '2023-01-04', 10.30, 1, 3, NULL, 'morgen', 'Reparatur,', '', 0, 1, 1),
+(3, '2023-01-11', 10.30, 1, 3, NULL, 'asdf', 'Heizung,Garantie,', '', 0, 1, 1),
+(4, '2023-01-12', 13.30, 2, 3, NULL, 'asdf', 'Reparatur,', 'asdfasdf', 0, 1, 1),
+(5, '2023-01-19', 12.30, 1, 4, NULL, 'asdf', 'Reparatur,Sanitaer,Heizung,Garantie,', 'asdfasdfasdf', 0, 1, 1),
+(6, '2023-01-11', 10.60, 2, 3, NULL, 'sadf', 'Reparatur,', 'asdfasdf', 0, 0, 0),
+(7, '2023-01-11', 10.50, 1, 4, NULL, 'asfdasfd', 'Reparatur,Heizung,Garantie,', 'asdfasddfasdfasdfasdf', 0, 0, 0),
+(8, '2023-01-12', 10.10, 2, 3, NULL, 'kp', 'Reparatur, Sanitaer, Heizung, Garantie, ', 'isch mer egal\r\n', 0, 1, 1),
+(9, '2023-01-10', 10.43, 2, 4, NULL, 'ko', 'Reparatur, Sanitaer, ', 'asdfasdf', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -129,7 +100,8 @@ CREATE TABLE `Kunden` (
 --
 
 INSERT INTO `Kunden` (`KNR`, `Kunden_Name`, `Kunden_Vorname`, `Geschlecht`, `Telefon`, `Natel`, `Adresse`, `PLZ`, `Ort`) VALUES
-(1, 'Wenzler', 'Alejandro', 'Herr', '077 424 04 24', '077 232 23 43', 'Weissnichwo 25', 4321, 'Brucke');
+(1, 'Wenzler', 'Alejandro', 'Herr', '077 424 04 24', '077 232 23 43', 'Weissnichwo 25', 4321, 'Brucke'),
+(2, 'Rothe', 'Nils', 'Herr', '077 424 03 94', '077 424 03 94', 'Oberzelgstrasse 26', 8493, 'Saland');
 
 -- --------------------------------------------------------
 
@@ -150,7 +122,10 @@ CREATE TABLE `Mitarbeiter` (
 --
 
 INSERT INTO `Mitarbeiter` (`MNR`, `Mitarbeiter_Name`, `Mitarbeiter_Vorname`, `Abteilung`, `Passwort`) VALUES
-(1, 'Rothe', 'Nils', 1, '$2y$10$k1GPMvSD8Ya3pFpis3KDpuZnRTzB9vEhR4dLe3lN3JHiG3Q3RhlV6');
+(1, 'Rothe', 'Nils', 1, '$2y$10$k1GPMvSD8Ya3pFpis3KDpuZnRTzB9vEhR4dLe3lN3JHiG3Q3RhlV6'),
+(2, 'Wenzler', 'Ale', 2, '$2y$10$2adBl6s.Yk/ZT46EvoGlAuRaI1.Mxn7dvRTqguvRcz4wwit0PfOEe'),
+(3, 'Moser', 'Shay', 3, '$2y$10$dpN0nTwGBHevxof5uaJJYuyQ1PJwIOqcM05WMKWP2v0LHrRQ0P67W'),
+(4, 'brunner', 'Martin', 3, '$2y$10$qt7ofdRgk7gS/mRyDVEy0.oe6x25yVjCCOZtAKdERpteFlQBylNm.');
 
 --
 -- Indizes der exportierten Tabellen
@@ -163,25 +138,12 @@ ALTER TABLE `Abteilung`
   ADD PRIMARY KEY (`AbtNr`);
 
 --
--- Indizes für die Tabelle `Arbeit`
---
-ALTER TABLE `Arbeit`
-  ADD PRIMARY KEY (`ArbeitNr`);
-
---
 -- Indizes für die Tabelle `Auftraege`
 --
 ALTER TABLE `Auftraege`
   ADD PRIMARY KEY (`AuftragsNr`),
   ADD KEY `Kunde` (`Kunde`),
   ADD KEY `Mitarbeiter` (`Mitarbeiter`);
-
---
--- Indizes für die Tabelle `Auftrag-Arbeit`
---
-ALTER TABLE `Auftrag-Arbeit`
-  ADD KEY `ArbeitNr` (`ArbeitNr`),
-  ADD KEY `AuftragsNr` (`AuftragsNr`);
 
 --
 -- Indizes für die Tabelle `Kunden`
@@ -207,28 +169,22 @@ ALTER TABLE `Abteilung`
   MODIFY `AbtNr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT für Tabelle `Arbeit`
---
-ALTER TABLE `Arbeit`
-  MODIFY `ArbeitNr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
 -- AUTO_INCREMENT für Tabelle `Auftraege`
 --
 ALTER TABLE `Auftraege`
-  MODIFY `AuftragsNr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `AuftragsNr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT für Tabelle `Kunden`
 --
 ALTER TABLE `Kunden`
-  MODIFY `KNR` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `KNR` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT für Tabelle `Mitarbeiter`
 --
 ALTER TABLE `Mitarbeiter`
-  MODIFY `MNR` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `MNR` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints der exportierten Tabellen
@@ -240,13 +196,6 @@ ALTER TABLE `Mitarbeiter`
 ALTER TABLE `Auftraege`
   ADD CONSTRAINT `auftraege_ibfk_1` FOREIGN KEY (`Kunde`) REFERENCES `Kunden` (`KNR`),
   ADD CONSTRAINT `auftraege_ibfk_2` FOREIGN KEY (`Mitarbeiter`) REFERENCES `Mitarbeiter` (`MNR`);
-
---
--- Constraints der Tabelle `Auftrag-Arbeit`
---
-ALTER TABLE `Auftrag-Arbeit`
-  ADD CONSTRAINT `auftrag-arbeit_ibfk_1` FOREIGN KEY (`ArbeitNr`) REFERENCES `Arbeit` (`ArbeitNr`),
-  ADD CONSTRAINT `auftrag-arbeit_ibfk_2` FOREIGN KEY (`AuftragsNr`) REFERENCES `Auftraege` (`AuftragsNr`);
 
 --
 -- Constraints der Tabelle `Mitarbeiter`

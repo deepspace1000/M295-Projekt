@@ -1,5 +1,5 @@
 <?php session_start();
-    if (!isset($_SESSION['userid']) || $_SESSION['abteilung'] != 1 || $_POST['sub'] == "abbrechen" || !isset($_POST['sub'])){
+    if (!isset($_SESSION['userid']) || $_SESSION['abteilung'] != 1 || !isset($_POST['sub'])){
         header("Location: index.php");
         die;
     }
@@ -14,6 +14,7 @@
     $statement = $con->prepare("INSERT INTO Mitarbeiter (Mitarbeiter_Name, Mitarbeiter_Vorname, Abteilung, Passwort) VALUES ('$name', '$vorname', $abt, '$hashed_password')");
     if($statement->execute()){
         header("Location: index.php");
+        die;
     }
     else{echo "Fehler Beim erstellen des neuen benutzers!!";}
 
