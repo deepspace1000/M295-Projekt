@@ -30,7 +30,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PDF</title>
 </head>
-<body>
+<!-- onLoad="window.print()" -->
+<body onLoad="window.print()">
     <h1>SERVICEAUFTRAG</h1>
     <p>------------------</p>
     <p>Datum: <?php echo $row->Datum; ?></p>
@@ -38,7 +39,7 @@
     <p>Kunde/Kontaktperson:</p>
     <p><?php echo $row->Geschlecht . " " . $row->Kunden_Vorname . " " . $row->Kunden_Name . "<br>" . $row->Adresse . "<br>" . $row->PLZ . " " . $row->Ort; ?></p>
     <p>Telefon: <?php echo $row->Telefon; ?></p>
-    <p>Natel : <?php echo $row->Natel; ?></p>
+    <p>Natel : <?php echo $row->Natel; ?></p>  
     <p>Adresse Objekt: dito</p>
     <p>Adresse Verrechnung: Da chasch genau das vom Pdf neh Shay</p>
     <p>-----------------</p>
