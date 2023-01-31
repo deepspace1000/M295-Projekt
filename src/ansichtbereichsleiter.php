@@ -46,7 +46,7 @@
             }else {
                 echo "<td>" . "<input type='date' name='date' maxlength='25' required>" . "</td>";
             }
-            if(isset($row->Ztei)){
+            if(isset($row->Zeit)){
                 echo "<td>" . $row->Zeit . "</td>";
             }else{
                 echo "<td>" . "<input type='number'name='time' maxlength='25' step='00.01'  required>" . "</td>";
