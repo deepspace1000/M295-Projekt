@@ -71,50 +71,73 @@
     </table>
 
     <p>_________________________________________________________________________________________________</p>
-    <p>Auszuführende Arbeiten: </p>
-    <?php
-        foreach($arbeiten as $value){
-            $checked = "";
-            if($value == "Reparatur"){
-                $checked = "checked='checked'";
-                break;
-            }
-        }
-        echo "<input type='checkbox' id='reperatur' disabled='disabled' $checked>";
-        echo "<lable for='reperatur'>Reperatur</lable>";
+    <table>
+            <tr>
+                    <td><b>Auszuführende Arbeiten: </b></td>
+                    <td class="text5">
+                        <?php
+                            foreach($arbeiten as $value){
+                                $checked = "";
+                                if($value == "Reparatur"){
+                                    $checked = "checked='checked'";
+                                    break;
+                                }
+                            }
+                            echo "<input type='checkbox' id='reperatur' disabled='disabled' $checked>";
+                            echo "<lable for='reperatur'>Reperatur</lable>";
+                        ?>
+                
+                        <?php
+                            foreach($arbeiten as $value){
+                                $checked = "";
+                                if($value == "Sanitaer"){
+                                    $checked = "checked='checked'";
+                                    break;
+                                }
+                            }
+                            echo "<input type='checkbox' id='sanitaer' disabled='disabled' $checked>";
+                            echo "<lable for='sanitaer'>Sanitär</lable>";
+                        ?>
+                    </td>
+     
+                    <td>
+                        <?php    
+                            foreach($arbeiten as $value){
+                                $checked = "";
+                                if($value == "Heizung"){
+                                    $checked = "checked='checked'";
+                                    break;
+                                }
+                            }
+                            echo "<input type='checkbox' id='heizung' disabled='disabled' $checked>";
+                            echo "<lable for='heizung'>Heizung</lable>";
+                        ?>
 
-        foreach($arbeiten as $value){
-            $checked = "";
-            if($value == "Sanitaer"){
-                $checked = "checked='checked'";
-                break;
-            }
-        }
-        echo "<input type='checkbox' id='sanitaer' disabled='disabled' $checked>";
-        echo "<lable for='sanitaer'>Sanitär</lable>";
-
-        foreach($arbeiten as $value){
-            $checked = "";
-            if($value == "Heizung"){
-                $checked = "checked='checked'";
-                break;
-            }
-        }
-        echo "<input type='checkbox' id='heizung' disabled='disabled' $checked>";
-        echo "<lable for='heizung'>Heizung</lable>";
-
-        foreach($arbeiten as $value){
-            $checked = "";
-            if($value == "Garantie"){
-                $checked = "checked='checked'";
-                break;
-            }
-        }
-        echo "<input type='checkbox' id='garantie' disabled='disabled' $checked>";
-        echo "<lable for='garantie'>Garantie</lable>";
-    ?>
-    <p><?php echo $row->Beschreibung; ?></p>
+                        <?php
+                            foreach($arbeiten as $value){
+                                $checked = "";
+                                if($value == "Garantie"){
+                                    $checked = "checked='checked'";
+                                    break;
+                                }
+                            }
+                            echo "<input type='checkbox' id='garantie' disabled='disabled' $checked>";
+                            echo "<lable for='garantie'>Garantie</lable>";
+                        ?>
+                    </td>
+                </tr>
+   
+            <tr>
+                <td><b>Beschreibung: </b></td>
+                <td class="text6"><?php echo $row->Beschreibung; ?></td>
+            </tr>
+    </table>
     <p>_________________________________________________________________________________________________</p>
-    <p>Terminwunsch: <?php echo $row->Terminwunsch; ?></p>
+    <table>
+        <tr>
+            <td><b>Terminswunsch: </b></td>
+            <td class="text7"><?php echo $row->Terminwunsch; ?></td>
+        </tr>
+    </table>
 </body>
 </html>

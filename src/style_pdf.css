@@ -1,9 +1,9 @@
 .text1{
-    padding-right: 50px;
+    padding-left: 70px;
 }
 
 .text2{
-    padding-right: 50px;
+    padding-left: 70px;
     padding-top: 40px;
 }
 
@@ -13,4 +13,16 @@
 
 .text4{
     padding-top: 10px;
+}
+
+.text5{
+    padding-left: 45px;
+}
+
+.text6{
+    padding-left: 50px;
+}
+
+.text7{
+    padding-left: 110px;
 }
