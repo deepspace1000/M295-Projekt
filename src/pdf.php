@@ -38,40 +38,35 @@
 
     <table>
         <tr>
-            <td>
-               <p> <b class="daten">Datum: </b> <?php echo $row->Datum; ?></p>
-                    <td>
-                    <p>Zeit: <?php echo $row->Zeit; ?></p>
-                    </td>
-            </td>
+            <td><b>Datum: </b></td>
+            <td class="text1"><?php echo $row->Datum; ?></td>
+            <td><b>Zeit: </b></td>
+            <td class="text1"><?php echo $row->Zeit; ?></td>
         </tr>
-        <tr>
 
-        </tr>
         <tr>
-            <td>
-                <p>Kunde/Kontaktperson: <?php echo $row->Geschlecht . " " . $row->Kunden_Vorname . " " . $row->Kunden_Name . "<br>" . $row->Adresse . "<br>" . $row->PLZ . " " . $row->Ort; ?></p>
-            </td>
+            <td><b>Kunde/Kontaktperson: </b></td>
+            <td class="text2"><?php echo $row->Geschlecht . " " . $row->Kunden_Vorname . " " . $row->Kunden_Name . "<br>" . $row->Adresse . "<br>" . $row->PLZ . " " . $row->Ort; ?></td>
         </tr>
+
         <tr>
-            <td>
-                <p>Telefon: <?php echo $row->Telefon; ?></p>
-            </td>
+            <td class="text3"><b>Telefon: </b></td>
+            <td class="text1 text3"><?php echo $row->Telefon; ?></td>
         </tr>
+
         <tr>
-            <td>
-                <p>Natel : <?php echo $row->Natel; ?></p>
-            </td>
+            <td><b>Natel: </b>
+            <td class="text1 text4"><?php echo $row->Natel; ?></p></td>
         </tr>
+
         <tr>
-            <td>
-                <p>Adresse Objekt: <?php echo $row->Adresse_Objekt; ?></p>
-            </td>
+            <td><b>Adresse Objekt: </b></td>
+            <td class="text1"><?php echo $row->Adresse_Objekt; ?></td>
         </tr>
+
         <tr>
-            <td>
-                <p>Adresse Verrechnung: Herr Nils Rothe<br>Vulkanstrasse 106<br>8048 Zürich</p>
-            </td>
+            <td><b>Adresse Verrechnung: </b></td>
+            <td class="text2">Herr Nils Rothe<br>Vulkanstrasse 106<br>8048 Zürich</td>
         </tr>
     </table>
 

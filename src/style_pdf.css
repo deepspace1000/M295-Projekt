@@ -1,3 +1,16 @@
-.daten{
-    font-weight: bold;
+.text1{
+    padding-right: 50px;
+}
+
+.text2{
+    padding-right: 50px;
+    padding-top: 40px;
+}
+
+.text3{
+    padding-top: 40px;
+}
+
+.text4{
+    padding-top: 10px;
 }
