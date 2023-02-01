@@ -40,7 +40,7 @@
     <p><?php echo $row->Geschlecht . " " . $row->Kunden_Vorname . " " . $row->Kunden_Name . "<br>" . $row->Adresse . "<br>" . $row->PLZ . " " . $row->Ort; ?></p>
     <p>Telefon: <?php echo $row->Telefon; ?></p>
     <p>Natel : <?php echo $row->Natel; ?></p>  
-    <p>Adresse Objekt: dito</p>
+    <p>Adresse Objekt: <?php echo $row->Adresse_Objekt; ?></p>
     <p>Adresse Verrechnung: Da chasch genau das vom Pdf neh Shay</p>
     <p>-----------------</p>
     <p>Auszuführende Arbeiten: </p>

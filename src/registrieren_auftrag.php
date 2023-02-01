@@ -24,7 +24,7 @@
 
     foreach($checkbox as $chkbox)
     {
-        $chk .= $chkbox . ", ";
+        $chk .= $chkbox . ",";
     }
     
     
