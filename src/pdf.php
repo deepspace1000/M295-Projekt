@@ -29,20 +29,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PDF</title>
+    <link rel="stylesheet" href="style_pdf.css">
 </head>
 <!-- onLoad="window.print()" -->
 <body>
     <h1>SERVICEAUFTRAG</h1>
-    <p>------------------</p>
-    <p>Datum: <?php echo $row->Datum; ?></p>
-    <p>Zeit: <?php echo $row->Zeit; ?></p>
-    <p>Kunde/Kontaktperson:</p>
-    <p><?php echo $row->Geschlecht . " " . $row->Kunden_Vorname . " " . $row->Kunden_Name . "<br>" . $row->Adresse . "<br>" . $row->PLZ . " " . $row->Ort; ?></p>
-    <p>Telefon: <?php echo $row->Telefon; ?></p>
-    <p>Natel : <?php echo $row->Natel; ?></p>  
-    <p>Adresse Objekt: <?php echo $row->Adresse_Objekt; ?></p>
-    <p>Adresse Verrechnung: Da chasch genau das vom Pdf neh Shay</p>
-    <p>-----------------</p>
+    <p1>_________________________________________________________________________________________________</p1>
+
+    <table>
+        <tr>
+            <td>
+                <p class="daten">Datum: <?php echo $row->Datum; ?></p>
+                    <td>
+                    <p>Zeit: <?php echo $row->Zeit; ?></p>
+                    </td>
+            </td>
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+            <td>
+                <p>Kunde/Kontaktperson: <?php echo $row->Geschlecht . " " . $row->Kunden_Vorname . " " . $row->Kunden_Name . "<br>" . $row->Adresse . "<br>" . $row->PLZ . " " . $row->Ort; ?></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Telefon: <?php echo $row->Telefon; ?></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Natel : <?php echo $row->Natel; ?></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Adresse Objekt: <?php echo $row->Adresse_Objekt; ?></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Adresse Verrechnung: Herr Nils Rothe<br>Vulkanstrasse 106<br>8048 Zürich</p>
+            </td>
+        </tr>
+    </table>
+
+    <p>_________________________________________________________________________________________________</p>
     <p>Auszuführende Arbeiten: </p>
     <?php
         foreach($arbeiten as $value){
@@ -86,7 +119,7 @@
         echo "<lable for='garantie'>Garantie</lable>";
     ?>
     <p><?php echo $row->Beschreibung; ?></p>
-    <p>-------------</p>
+    <p>_________________________________________________________________________________________________</p>
     <p>Terminwunsch: <?php echo $row->Terminwunsch; ?></p>
 </body>
 </html>
