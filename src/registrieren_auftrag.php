@@ -16,6 +16,7 @@
     require_once "db_connection.php";
 
     $kunde = $_POST['Kunde'];
+    $aObjekt = $_POST['aObjekt'];
     $checkbox = $_POST['arbeit'];
     $chk = "";
     $terminWunsch = $_POST['terminWunsch'];
@@ -28,7 +29,7 @@
     
     
 
-    $statement = $con->prepare("INSERT INTO auftraege (Kunde, Terminwunsch, Arbeit, Beschreibung, Ausgefuehrt, Freigegeben_Verrechnung, Verrechnet) VALUES ('$kunde', '$terminWunsch', '$chk', '$kommentar', 0, 0, 0)");
+    $statement = $con->prepare("INSERT INTO auftraege (Kunde, Adresse_Objekt , Terminwunsch, Arbeit, Beschreibung, Ausgefuehrt, Freigegeben_Verrechnung, Verrechnet) VALUES ('$kunde', '$aObjekt','$terminWunsch', '$chk', '$kommentar', 0, 0, 0)");
     
     if($statement->execute()){
         header("Location: index.php");
