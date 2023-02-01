@@ -47,6 +47,7 @@
             echo "<td>" . $row->Arbeit . "</td>";
             echo "<td>" . $row->Beschreibung . "</td>";
             echo "<td>" . "<input type='submit' name='sub' value='Ausgefuehrt'>" . "</td>";
+            echo "<td>" . "<input type='submit' name='sub' value='pdf'>" . "</td>";
             echo "<td>" . "<input type='hidden' name='auftrag' value='$row->AuftragsNr'>" . "</td>";
             echo "</tr>";
             echo "</form>";
