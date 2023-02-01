@@ -28,11 +28,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv='refresh' content='0'>
     <title>PDF</title>
     <link rel="stylesheet" href="style_pdf.css">
 </head>
 <!-- onLoad="window.print()" -->
-<body>
+<body onLoad="window.print()">
     <h1>SERVICEAUFTRAG</h1>
     <p1>_________________________________________________________________________________________________</p1>
 
