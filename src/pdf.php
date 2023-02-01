@@ -39,7 +39,7 @@
     <table>
         <tr>
             <td>
-                <p class="daten">Datum: <?php echo $row->Datum; ?></p>
+               <p> <b class="daten">Datum: </b> <?php echo $row->Datum; ?></p>
                     <td>
                     <p>Zeit: <?php echo $row->Zeit; ?></p>
                     </td>
