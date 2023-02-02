@@ -3,6 +3,11 @@
         header("Location: index.php");
         die;
     }
+    /**
+     * Dieses file wird aufgerufen wenn der admin einer der Buttons im Formular gedrückt hat. <br>
+     * Es wird ausgehend vom Button welcher gedrückt worden ist entweder das file pdf aufgerufen <br>
+     * welches den entsprechenden auftrag drucken kann oder der Auftrag wird in der DB als verrechnet gekennzeichnet.
+     */
 
     if($_POST['sub'] == "pdf"){
         $_SESSION['auftragsnr'] = $_POST['auftrag'];
