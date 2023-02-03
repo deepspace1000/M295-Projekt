@@ -4,6 +4,13 @@
         die;
     }
 
+    /**
+     * Hier wird aus einem Auftrag eine Wesbeite dargestellt welche alle infos erhält. <br>
+     * Es wird automatisch die druck funktionaufgerufen wo man die Seite drucken oder als pdf exportieren kann <br>
+     * Es wird nach dem export oder drucken automatisch einen Pagereload durchgeführt wo bei der user zurück zur seinen <br>
+     * auftragsübersicht geleitet wird.
+     */
+
     require_once "db_connection.php";
     $auftragsnr = $_SESSION['auftragsnr'];
     unset($_SESSION['auftragsnr']);

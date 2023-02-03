@@ -3,6 +3,11 @@
         header("Location: index.php");
         die;
     }
+    /**
+     * Dieses File wird aufgerufen wenn der admin den submit button auf der Seite erfassen_auftrag drückt. <br>
+     * Es werden alle informationen aus dem Formular übernommen und in die Datenbank gespeichert. <br>
+     * Danach wird der admin zu seiner Auftragsübersicht zurück geleitet.
+     */
 
     if(!isset($_POST['arbeit']))
     {
