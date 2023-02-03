@@ -3,6 +3,11 @@
         header("Location: index.php");
         die;
     }
+
+    /**
+     * Auf dieser Seite wird ein Formular geladen mit welchem ein Admin einen neuen Mitarbeiter erfassen kann. <br>
+     * Beim absenden des Formulars wird das registrieren_mitarbeiter file aufgerufen.
+     */
 ?>
 
 <!DOCTYPE html>

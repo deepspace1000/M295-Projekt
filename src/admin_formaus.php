@@ -3,6 +3,7 @@
         header("Location: index.php");
         die;
     }
+    
     /**
      * Dieses file wird aufgerufen wenn der admin einer der Buttons im Formular gedrückt hat. <br>
      * Es wird ausgehend vom Button welcher gedrückt worden ist entweder das file pdf aufgerufen <br>

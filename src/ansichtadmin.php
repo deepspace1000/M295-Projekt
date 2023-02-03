@@ -1,18 +1,19 @@
 <?php session_start();
     if (!isset($_SESSION['userid']) || $_SESSION['abteilung'] != 1){
         header("Location: index.php");
-        die;
-        /**
-         * Mit diesem file wird die ansicht des Admins dargestellt <br>
-         * Er kann auch seine in der Aufgabe aufgeführten aufgaben ausführen <br>
-         * Es befinden sich auch zwei Buttons auf der Seite mit welchen der Admin 
-         * einen neuen Mitarbeiter oder einen neuen Auftrag erfassen kann er wird 
-         * dafür auf die entsprechenden Seiten geleitet. <br>
-         * Im angezeigten Formular kann er Aufträge verrechnen und ein Auftragsblatt drucken. 
-         * Bei ausführen von einer dieser Funktionen wird das file admin_formaus aufgerufen.
-         */
-
+        die;  
     }
+    
+    /**
+     * Mit diesem file wird die ansicht des Admins dargestellt <br>
+     * Er kann auch seine in der Aufgabe aufgeführten aufgaben ausführen <br>
+     * Es befinden sich auch zwei Buttons auf der Seite mit welchen der Admin 
+     * einen neuen Mitarbeiter oder einen neuen Auftrag erfassen kann er wird 
+     * dafür auf die entsprechenden Seiten geleitet. <br>
+     * Im angezeigten Formular kann er Aufträge verrechnen und ein Auftragsblatt drucken. 
+     * Bei ausführen von einer dieser Funktionen wird das file admin_formaus aufgerufen.
+     */
+
 ?>
 <!DOCTYPE html>
 <html lang="de">

@@ -3,6 +3,11 @@
         header("Location: index.php");
         die;
     }
+
+    /**
+     * Auf dieser Seite kann ein Admin einen Neuen Kunden mit allen Infos erfassen. <br>
+     * Beim drücken des Submit buttons wird das file registrieren_kunde aufgerufen.
+     */
 ?>
 <!DOCTYPE html>
 <html lang="de">

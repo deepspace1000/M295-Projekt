@@ -2,15 +2,22 @@
     if (!isset($_SESSION['userid']) || $_SESSION['abteilung'] != 3){
         header("Location: index.php");
         die;
-    }
+    } 
+    
+    /**
+     * Mit diesem file wird die ansicht des Mitarbeiters dargestellt <br>
+     * Er kann auch seine in der Aufgabe aufgeführten aufgaben ausführen <br>
+     * Im angezeigten Formular kann er Aufträge als ausgehführt markieren und ein Auftragsblatt drucken. <br>
+     * Bei ausführen von einer dieser Funktionen wird das file mitarbeiter_formaus aufgerufen.
+     */
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Auftrags Ansicht</title>
 </head>
 <body>
     <header>

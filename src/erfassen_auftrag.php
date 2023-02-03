@@ -3,6 +3,12 @@
         header("Location: index.php");
         die;
     }
+    /**
+     * Diese Seite wird aufgerufen wenn der Admin auf seiner Auftragsansicht den entsprechenden button gedrückt hat. <br>
+     * In diesem formular kann der Admin einen Auftrag annehmen und einen Kunden auswählen <br>
+     * fals der Kunde noch nicht im System ist kann er über einen Button einen Neuen Kunden erfassen. <br>
+     * Wenn der Submit Button gedrückt wird, wird das file registrieren_auftrag aufgerufen.
+     */
 ?>
 
 <!DOCTYPE html>
