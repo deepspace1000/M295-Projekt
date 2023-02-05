@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Erstellungszeit: 31. Jan 2023 um 14:46
+-- Erstellungszeit: 05. Feb 2023 um 13:13
 -- Server-Version: 10.4.21-MariaDB
 -- PHP-Version: 8.1.2
 
@@ -67,15 +67,7 @@ CREATE TABLE `Auftraege` (
 --
 
 INSERT INTO `Auftraege` (`AuftragsNr`, `Datum`, `Zeit`, `Kunde`, `Mitarbeiter`, `Adresse_Objekt`, `Terminwunsch`, `Arbeit`, `Beschreibung`, `Ausgefuehrt`, `Freigegeben_Verrechnung`, `Verrechnet`) VALUES
-(1, '2023-01-25', 10.30, 1, 1, 'dito', 'wend ziit hesch chasch mal verbii cho', '', 'Miis Huus isch explodiert', 0, 1, 1),
-(2, '2023-01-04', 10.30, 1, 3, NULL, 'morgen', 'Reparatur,', '', 0, 1, 1),
-(3, '2023-01-11', 10.30, 1, 3, NULL, 'asdf', 'Heizung,Garantie,', '', 0, 1, 1),
-(4, '2023-01-12', 13.30, 2, 3, NULL, 'asdf', 'Reparatur,', 'asdfasdf', 0, 1, 1),
-(5, '2023-01-19', 12.30, 1, 4, NULL, 'asdf', 'Reparatur,Sanitaer,Heizung,Garantie,', 'asdfasdfasdf', 0, 1, 1),
-(6, '2023-01-11', 10.60, 2, 3, NULL, 'sadf', 'Reparatur,', 'asdfasdf', 0, 0, 0),
-(7, '2023-01-11', 10.50, 1, 4, NULL, 'asfdasfd', 'Reparatur,Heizung,Garantie,', 'asdfasddfasdfasdfasdf', 0, 0, 0),
-(8, '2023-01-12', 10.10, 2, 3, NULL, 'kp', 'Reparatur, Sanitaer, Heizung, Garantie, ', 'isch mer egal\r\n', 0, 1, 1),
-(9, '2023-01-10', 10.43, 2, 4, NULL, 'ko', 'Reparatur, Sanitaer, ', 'asdfasdf', 0, 0, 0);
+(1, NULL, NULL, 2, NULL, 'dito', 'Morgen', 'Reparatur,Heizung,', 'Wasserhan kapput', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -172,7 +164,7 @@ ALTER TABLE `Abteilung`
 -- AUTO_INCREMENT für Tabelle `Auftraege`
 --
 ALTER TABLE `Auftraege`
-  MODIFY `AuftragsNr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `AuftragsNr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT für Tabelle `Kunden`
