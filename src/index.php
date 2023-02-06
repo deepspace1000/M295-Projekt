@@ -3,6 +3,11 @@
         header("Location: auftragsansicht.php");
         die;
     }
+    /**
+     * Die Index Seite ist die erste Seite auf welche ein User geleitet wird<br>
+     * Wenn bereits ein User in der Session gespeichert ist wird er automatisch auf seine jeweilige ansicht geleitet<br>
+     * Ansonsten wird hier das Anmelde Formular angezeigt
+     */
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -42,6 +47,9 @@
     </form>
     
     <?php
+        /**
+         * Wenn beim Login vorgang ein feher aufgetreten ist wird dieser hier angezeigt
+         */
         if(isset($_SESSION['meldungen'])){
             echo "<p>" . $_SESSION['meldungen'] . "</p>";
         }

@@ -3,6 +3,11 @@
         header("Location: index.php");
         die;
     }
+    /**
+     * Dieses File wird aufgerufen wenn der admin den submit button auf der Seite erfassen_auftrag drückt. <br>
+     * Es werden alle informationen aus dem Formular übernommen und in die Datenbank gespeichert. <br>
+     * Danach wird der admin zu seiner Auftragsübersicht zurück geleitet.
+     */
 
     if(!isset($_POST['arbeit']))
     {
@@ -16,6 +21,7 @@
     require_once "db_connection.php";
 
     $kunde = $_POST['Kunde'];
+    $aObjekt = $_POST['aObjekt'];
     $checkbox = $_POST['arbeit'];
     $chk = "";
     $terminWunsch = $_POST['terminWunsch'];
@@ -23,12 +29,12 @@
 
     foreach($checkbox as $chkbox)
     {
-        $chk .= $chkbox . ", ";
+        $chk .= $chkbox . ",";
     }
     
     
 
-    $statement = $con->prepare("INSERT INTO auftraege (Kunde, Terminwunsch, Arbeit, Beschreibung, Ausgefuehrt, Freigegeben_Verrechnung, Verrechnet) VALUES ('$kunde', '$terminWunsch', '$chk', '$kommentar', 0, 0, 0)");
+    $statement = $con->prepare("INSERT INTO auftraege (Kunde, Adresse_Objekt , Terminwunsch, Arbeit, Beschreibung, Ausgefuehrt, Freigegeben_Verrechnung, Verrechnet) VALUES ('$kunde', '$aObjekt','$terminWunsch', '$chk', '$kommentar', 0, 0, 0)");
     
     if($statement->execute()){
         header("Location: index.php");

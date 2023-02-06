@@ -1,5 +1,16 @@
 <?php session_start();
-
+     if(isset($_SESSION['userid'])){
+        header("Location: index.php");
+        die;
+    }
+    /**
+     * Das login.php file wird von der index Seite aufgerufen wenn der Submit Button gedrückt wurde<br>
+     * Hier wird überprüft ob ein User mit der eigegebenen Mitarbeiter nummer exestiert und er das Richtige Passwort eingegeben hat<br>
+     * ansonsten wird eine Fehler über die Session zurückgegeben und der User wird auf die Indexseite zurück geleitet<br>
+     * Wenn ein User mit dieser Nummer exestiert und das richtige Passwort eigegeben wurde<br>
+     * wird der Name, die Abteilungsnummer und die Mitarbeiternummer in die Session gespeichert und er wird zum<br>
+     * auftragsansicht file geleitet.
+     */
     require_once "db_connection.php";
 
     $loginID = $_POST['loginID'];

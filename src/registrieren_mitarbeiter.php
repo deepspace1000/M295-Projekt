@@ -4,6 +4,12 @@
         die;
     }
 
+    /**
+     * Dieses File wird aufgerufen wenn der admin den submit button auf der Seite erfassen_mitarbeiter drückt. <br>
+     * Es werden alle informationen aus dem Formular übernommen und in die Datenbank gespeichert. <br>
+     * Danach wird der admin zu seiner auftragsübersicht zurück geleitet.
+     */
+
     require_once "db_connection.php";
 
     $name = $_POST['name'];

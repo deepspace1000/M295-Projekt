@@ -3,14 +3,22 @@
         header("Location: index.php");
         die;
     }
+    
+    /**
+     * Mit diesem file wird die ansicht des Bereichsleiter dargestellt <br>
+     * Er kann auch seine in der Aufgabe aufgeführten aufgaben ausführen <br>
+     * Im angezeigten Formular kann er Aufträge disponieren, zurverrechnung freigeben und ein Auftragsblatt drucken. 
+     * Bei ausführen von einer dieser Funktionen wird das file bereichsleiter_formaus aufgerufen.
+     */
+    
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Auftrags Ansicht</title>
 </head>
 <body>
     <header>
@@ -77,6 +85,7 @@
             if(!isset($row->Mitarbeiter)){
                 echo "<td>" . "<input type='submit' name='sub' value='disponieren'>" . "</td>";
             }
+            echo "<td>" . "<input type='submit' name='sub' value='pdf'>" . "</td>";
             echo "<td>" . "<input type='hidden' name='auftrag' value='$row->AuftragsNr'>" . "</td>";
             echo "</tr>";
             echo "</form>";
